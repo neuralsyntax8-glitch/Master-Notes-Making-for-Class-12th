@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Note-Taking Mastery | Class 12</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">`n    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        /* ══════════════════════════════════════════
+           DESIGN SYSTEM — CSS VARIABLES
+        ══════════════════════════════════════════ */
+        :root {
+            --violet:        #6c47ff;
+            --violet-dark:   #4b2ecc;
+            --violet-light:  #ede9ff;
+            --emerald:       #00c97a;
+            --amber:         #f5c842;
+            --amber-light:   #fffbe6;
+            --amber-border:  #e6b800;
+            --gray-900:      #111827;
+            --gray-700:      #374151;
+            --gray-500:      #6b7280;
+            --gray-200:      #e5e7eb;
+            --gray-50:       #f9fafb;
+            --white:         #ffffff;
+            --shadow-sm:     0 2px 8px rgba(108,71,255,0.08);
+            --shadow-md:     0 8px 32px rgba(108,71,255,0.13);
+            --shadow-lg:     0 20px 60px rgba(108,71,255,0.18);
+            --radius-sm:     10px;
+            --radius-md:     18px;
+            --radius-pill:   999px;
+            --glass-bg:      rgba(255,255,255,0.06);
+            --glass-border:  rgba(255,255,255,0.1);
+            --glass-shadow:  0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(145deg, #0c0a1d 0%, #1a1035 30%, #0f1923 60%, #0d0d12 100%);
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        strong { font-weight: 700; color: rgba(255,255,255,0.92); }
+
+        /* ══════════════════════════════════════════
+           NAV
+        ══════════════════════════════════════════ */
+        nav {
+            position: sticky;
+            top: 0; z-index: 100;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0 40px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.45rem;
+            color: var(--violet);
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-tab {
+            background: transparent;
+            border: none;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.2s ease;
+        }
+        .nav-tab:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+        .nav-tab.active {
+            background: var(--violet);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(108,71,255,0.3);
+        }
+
+        /* ══════════════════════════════════════════
+           HERO
+        ══════════════════════════════════════════ */
+        .hero {
+            background: linear-gradient(140deg, #6c47ff 0%, #9b6dff 45%, #c084fc 80%, #f472b6 100%);
+            padding: 110px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .hero-blob-1 { width:480px; height:480px; background:rgba(255,255,255,0.12); top:-160px; right:-80px; animation: drift 10s ease-in-out infinite; }
+        .hero-blob-2 { width:280px; height:280px; background:rgba(255,255,255,0.07); bottom:-80px; left:60px; animation: drift 7s ease-in-out infinite reverse; }
+        @keyframes drift { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-28px)} }
+        .hero-inner { position:relative; z-index:2; max-width:700px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap:8px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 6px 16px; border-radius: var(--radius-pill);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 400; font-style: italic;
+            color: #fff; line-height: 1.12;
+            letter-spacing: -1px; margin-bottom: 18px;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.08rem; max-width: 560px; margin-bottom: 36px;
+        }
+        .hero strong { color: #fff; font-weight: 800; }
+        .hero-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #fff; color: var(--violet);
+            font-weight: 700; font-size: 0.95rem;
+            padding: 15px 34px; border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+        }
+        .hero-btn:hover { transform:translateY(-6px); box-shadow:0 28px 56px rgba(0,0,0,0.28); }
+
+        /* ══════════════════════════════════════════
+           TAB BODY
+        ══════════════════════════════════════════ */
+        .tab-body { padding: 80px 40px; max-width: 1140px; margin: 0 auto; }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: block;
+            animation: fadeUp 0.45s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(20px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION HEADING BLOCK
+        ══════════════════════════════════════════ */
+        .section-tag {
+            display: inline-block;
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 14px; border-radius: var(--radius-pill);
+            margin-bottom: 12px;
+        }
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+            font-weight: 400; color: rgba(255,255,255,0.92);
+            line-height: 1.18; letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .section-heading i { color: var(--violet); font-size: 1.6rem; }
+        .section-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,0.55);
+            max-width: 580px; margin-bottom: 48px;
+        }
+
+        /* ══════════════════════════════════════════
+           TECHNIQUE / METHOD CARDS
+        ══════════════════════════════════════════ */
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .technique-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border-left: 5px solid var(--violet);
+            box-shadow: var(--glass-shadow);
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+        .technique-card::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(108,71,255,0.1), transparent 60%);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .technique-card:hover { transform:translateY(-8px); box-shadow:var(--glass-shadow); border-color:#c084fc; }
+        .technique-card:hover::after { opacity: 1; }
+        .technique-card h3 {
+            font-size: 1.1rem; font-weight: 800;
+            color: rgba(255,255,255,0.92); margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+            position: relative; z-index: 1;
+        }
+        .technique-card h3 i { color: var(--violet); }
+        .technique-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); margin-bottom:14px; position:relative;z-index:1; }
+        .technique-card ul {
+            padding-left: 18px; margin: 12px 0;
+            font-size: 0.9rem; color: rgba(255,255,255,0.7);
+            position: relative; z-index:1;
+        }
+        .technique-card ul li { margin-bottom: 6px; }
+        .card-tags { display:flex; flex-wrap:wrap; gap:6px; position:relative; z-index:1; margin-top:14px; }
+        .card-tag {
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.73rem; font-weight: 600;
+            padding: 3px 11px; border-radius: var(--radius-pill);
+        }
+
+        /* ══════════════════════════════════════════
+           QUICK TIPS GRID (Memory tab)
+        ══════════════════════════════════════════ */
+        .quick-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 0 0 40px;
+        }
+        .quick-tip-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+        }
+        .quick-tip-card:hover { border-color: var(--violet); transform:translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+        .quick-tip-card i { font-size:2rem; color:var(--violet); margin-bottom:14px; display:block; }
+        .quick-tip-card h4 { font-size:1rem; font-weight:700; color:rgba(255,255,255,0.92); margin-bottom:8px; }
+        .quick-tip-card p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.65; }
+
+        /* ══════════════════════════════════════════
+           COLLAPSIBLE
+        ══════════════════════════════════════════ */
+        .collapsible {
+            width: 100%; text-align: left;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 10px 0 0;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            color: rgba(255,255,255,0.88);
+            display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.25s ease;
+        }
+        .collapsible:hover { background: rgba(108,71,255,0.15); border-color: var(--violet); color: var(--violet-light); }
+        .collapsible.open { background: var(--violet); color: #fff; border-color: var(--violet); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+        .collapsible.open i { transform: rotate(180deg); }
+        .collapsible i { transition: transform 0.3s ease; }
+        .collapsible-content {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08); border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .collapsible-content.open { max-height: 1200px; padding: 28px; }
+
+        /* ══════════════════════════════════════════
+           SAMPLE NOTE BOX
+        ══════════════════════════════════════════ */
+        .sample-note {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            font-family: 'DM Sans', monospace;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+        }
+        .sample-note h3 { font-size:1.1rem; color:rgba(255,255,255,0.92); margin-bottom:14px; font-family:'Instrument Serif',serif; font-style:italic; }
+        .sample-note h4 { font-size:0.92rem; font-weight:700; color:var(--violet); margin:16px 0 6px; }
+        .sample-note ul { padding-left:18px; color:rgba(255,255,255,0.7); }
+        .sample-note ul li { margin-bottom:5px; }
+
+        /* Cornell layout */
+        .cornell-grid {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .cornell-cues {
+            background: rgba(108,71,255,0.15);
+            padding: 20px;
+            border-right: 2px solid var(--violet);
+            font-size: 0.87rem;
+            color: rgba(255,255,255,0.8);
+        }
+        .cornell-cues strong { color: var(--violet-light); }
+        .cornell-notes { padding: 20px; font-size: 0.87rem; color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.04); }
+        .cornell-summary {
+            grid-column: 1 / -1;
+            background: rgba(0,201,122,0.1);
+            border-top: 2px solid var(--emerald);
+            padding: 16px 20px;
+            font-size: 0.87rem;
+            color: rgba(255,255,255,0.8);
+        }
+        .cornell-summary strong { color: var(--emerald); }
+
+        /* Timeline */
+        .timeline { position:relative; padding:24px 0; }
+        .timeline::before {
+            content:''; position:absolute; left:50%; top:0; bottom:0;
+            width:3px; background:var(--violet); transform:translateX(-50%);
+        }
+        .t-item { position:relative; margin:20px 0; padding:0 28px; }
+        .t-item:nth-child(odd)  { text-align:right; padding-right:54%; }
+        .t-item:nth-child(even) { text-align:left;  padding-left:54%; }
+        .t-item::before {
+            content:''; position:absolute; top:4px;
+            width:14px; height:14px;
+            background:var(--violet); border-radius:50%;
+            left:50%; transform:translateX(-50%);
+            box-shadow:0 0 0 4px var(--violet-light);
+        }
+        .t-date { font-weight:700; color:var(--violet); font-size:1rem; }
+        .t-body { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:12px 16px; margin-top:8px; font-size:0.88rem; color:rgba(255,255,255,0.7); }
+
+        /* Comparison table */
+        .comp-table { width:100%; border-collapse:collapse; font-size:0.88rem; }
+        .comp-table th { background:var(--violet); color:#fff; padding:13px 16px; text-align:left; }
+        .comp-table td { padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); }
+        .comp-table tr:nth-child(even) td { background:rgba(255,255,255,0.03); }
+        .comp-table tr:hover td { background:rgba(108,71,255,0.12); }
+
+        /* Mind map clusters */
+        .mind-map-center {
+            background: linear-gradient(135deg, var(--violet), #9b6dff);
+            color:#fff; border-radius: var(--radius-md);
+            padding:20px 28px; text-align:center;
+            font-family:'Instrument Serif',serif; font-size:1.15rem; font-style:italic;
+            margin-bottom:24px;
+            box-shadow: var(--shadow-md);
+        }
+        .mind-map-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+        .mind-cluster { border-radius:var(--radius-md); padding:16px 18px; font-size:0.86rem; line-height:1.65; background:rgba(255,255,255,0.06); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.1); }
+        .mind-cluster h4 { font-size:0.85rem; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:8px; color:rgba(255,255,255,0.8); }
+        .mc-blue h4 { color:#60a5fa; } .mc-orange h4 { color:#fb923c; } .mc-green h4 { color:#4ade80; } .mc-amber h4 { color:#facc15; }
+
+        /* Download button */
+        .dl-btn {
+            display:inline-flex; align-items:center; gap:8px;
+            background: var(--emerald); color:#fff;
+            font-size:0.88rem; font-weight:600;
+            padding:10px 22px; border-radius:var(--radius-pill);
+            border:none; cursor:pointer; text-decoration:none;
+            box-shadow:0 4px 14px rgba(0,201,122,0.3);
+            transition:all 0.25s ease;
+        }
+        .dl-btn:hover { background:var(--emerald-dark, #009a5c); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,201,122,0.35); }
+
+        /* ══════════════════════════════════════════
+           TIP BOX (our signature component)
+        ══════════════════════════════════════════ */
+        .tip-box-wrapper { margin: 32px 0; }
+        .tip-box {
+            position:relative;
+            background:rgba(255,255,255,0.06);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:var(--radius-lg);
+            padding:36px 40px 36px 44px;
+            box-shadow:var(--glass-shadow);
+            display:flex; align-items:flex-start; gap:20px; overflow:visible;
+        }
+        .tip-box::before {
+            content:''; position:absolute;
+            left:0; top:0; bottom:0; width:5px;
+            background:linear-gradient(180deg, var(--emerald) 0%, var(--amber-border) 100%);
+            border-radius:var(--radius-md) 0 0 var(--radius-md);
+        }
+        .tip-box::after {
+            content:''; position:absolute;
+            bottom:-30px; right:-30px;
+            width:130px; height:130px;
+            background:var(--amber); opacity:0.10;
+            border-radius:50%; pointer-events:none;
+        }
+        .tip-box-badge {
+            position:absolute; top:-16px; left:24px;
+            display:inline-flex; align-items:center; gap:6px;
+            background:var(--emerald); color:#fff;
+            font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+            padding:5px 16px; border-radius:var(--radius-pill);
+            box-shadow:0 4px 14px rgba(0,201,122,0.35);
+        }
+        .badge-dot {
+            width:7px; height:7px; background:#fff; border-radius:50%;
+            display:inline-block; animation:pulse-dot 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        .tip-box-icon {
+            width:52px; height:52px; background:var(--amber);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:24px; flex-shrink:0;
+            box-shadow:0 4px 14px rgba(245,200,66,0.4); margin-top:2px;
+        }
+        .tip-box-content { flex:1; }
+        .tip-box-content h3 { font-size:1.15rem; font-weight:800; color:rgba(255,255,255,0.92); margin-bottom:7px; line-height:1.3; }
+        .tip-box-content p { font-size:0.94rem; color:rgba(255,255,255,0.7); line-height:1.72; }
+
+        /* Pro tip (gradient) */
+        .pro-tip {
+            background: linear-gradient(135deg, var(--violet), #9b6dff);
+            color:#fff; border-radius:var(--radius-md);
+            padding:28px 32px; margin:32px 0;
+            box-shadow: var(--shadow-md);
+        }
+        .pro-tip h4 { font-size:1rem; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .pro-tip h4 i { font-size:1.1rem; }
+        .pro-tip p { font-size:0.92rem; line-height:1.7; opacity:0.93; }
+        .pro-tip strong { color:#fff; }
+
+        /* Checklist */
+        .checklist-block { background:rgba(255,255,255,0.06); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:24px; }
+        .checklist-block h4 { font-size:0.95rem; font-weight:700; color:var(--violet); margin:16px 0 8px; }
+        .checklist-block h4:first-child { margin-top:0; }
+        .checklist-block ul { padding-left:4px; list-style:none; }
+        .checklist-block ul li { padding:5px 0; font-size:0.9rem; color:rgba(255,255,255,0.7); display:flex; align-items:center; gap:10px; }
+        .checklist-block ul li::before { content:'✓'; color:var(--emerald); font-weight:800; flex-shrink:0; }
+
+        /* Memory palace ordered list */
+        .palace-list { padding-left:20px; margin:16px 0; font-size:0.9rem; color:rgba(255,255,255,0.8); }
+        .palace-list li { margin-bottom:10px; }
+        .palace-list ul { padding-left:18px; margin:8px 0; }
+        .palace-list ul li { margin-bottom:4px; color:rgba(255,255,255,0.5); }
+
+        /* Revision schedule note */
+        .schedule-note { font-size:0.86rem; color:rgba(255,255,255,0.5); margin-top:12px; line-height:1.65; }
+        .schedule-note strong { color:rgba(255,255,255,0.8); }
+
+        /* ══════════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════════ */
+        footer {
+            background:linear-gradient(140deg, var(--violet-dark) 0%, var(--violet) 60%, #c084fc 100%);
+            color:rgba(255,255,255,0.92); text-align:center; padding:56px 40px;
+        }
+        footer .footer-logo {
+            font-family:'Instrument Serif',serif; font-style:italic;
+            font-size:2rem; color:#fff; margin-bottom:10px;
+        }
+        footer p { font-size:0.9rem; opacity:0.8; margin-top:6px; }
+
+        /* ══════════════════════════════════════════
+            DROPDOWN
+        ══════════════════════════════════════════ */
+        .nav-dropdown { position: relative; display: inline-block; }
+
+        .nav-dropdown-btn {
+            background: transparent; border: none;
+            padding: 8px 14px; border-radius: var(--radius-pill);
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .nav-dropdown-btn:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        .nav-dropdown-content {
+            display: none; position: absolute;
+            top: 100%; right: 0;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md); min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 200; overflow: hidden;
+        }
+        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+        .nav-dropdown-content a {
+            display: block; padding: 12px 18px;
+            text-decoration: none; color: rgba(255,255,255,0.8);
+            font-size: 0.88rem; font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-dropdown-content a:last-child { border-bottom: none; }
+        .nav-dropdown-content a:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        /* ══════════════════════════════════════════
+            RESPONSIVE
+        ══════════════════════════════════════════ */
+        @media(max-width:768px){
+            nav { padding:0 16px; height:auto; flex-wrap:wrap; gap:8px; padding:12px 16px; }
+            .nav-links { gap:4px; }
+            .hero { padding:72px 20px; }
+            .tab-body { padding:56px 20px; }
+            .tip-box { padding:32px 20px 28px 28px; flex-direction:column; }
+            .tip-box-badge { left:16px; }
+            .timeline::before { left:18px; }
+            .t-item:nth-child(odd), .t-item:nth-child(even) { text-align:left; padding-left:44px; padding-right:0; }
+            .t-item::before { left:18px; }
+            .cornell-grid { grid-template-columns:1fr; }
+            .cornell-cues { border-right:none; border-bottom:2px solid var(--violet); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+    <div class="nav-logo">🎓 HistoryMaster</div>
+    <div class="nav-links">
+        <button class="nav-tab active" onclick="showTab('techniques', this)"><i class="fas fa-tools"></i> Techniques</button>
+        <button class="nav-tab" onclick="showTab('templates', this)"><i class="fas fa-clipboard-list"></i> Templates</button>
+        <button class="nav-tab" onclick="showTab('examples', this)"><i class="fas fa-book-open"></i> Examples</button>
+        <button class="nav-tab" onclick="showTab('memory', this)"><i class="fas fa-brain"></i> Memory Tips</button>
+        <button class="nav-tab" onclick="showTab('revision', this)"><i class="fas fa-sync-alt"></i> Revision</button>
+        <div class="nav-dropdown">
+            <button class="nav-dropdown-btn"><i class="fas fa-th"></i></button>
+            <div class="nav-dropdown-content">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="English.html"><i class="fas fa-book"></i> English</a>
+                <a href="PE.html"><i class="fas fa-running"></i> PE</a>
+                <a href="IP.html"><i class="fas fa-code"></i> Informatics Practices</a>
+                <a href="political-science.html"><i class="fas fa-gavel"></i> Political Science</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-inner">
+        <div class="hero-eyebrow">✦ Class 12 History</div>
+        <h1>History Note-Taking<br>Mastery</h1>
+        <p>Your <strong>comprehensive guide</strong> to effective note-taking strategies for Class 12 History. Master the art of capturing, organising, and retaining <strong>historical knowledge</strong> for academic success.</p>
+        <a href="#" class="hero-btn" onclick="showTab('techniques', document.querySelector('.nav-tab')); return false;">
+            Explore Techniques <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<!-- ═══════════════ TAB BODY ═══════════════ -->
+<div class="tab-body">
+
+    <!-- ─── TECHNIQUES ─── -->
+    <div id="techniques" class="tab-content active">
+        <span class="section-tag">Core Methods</span>
+        <h2 class="section-heading"><i class="fas fa-tools"></i> Note-Taking Techniques</h2>
+        <p class="section-subtitle">Six powerful methods used by top students to capture and organise historical information.</p>
+
+        <div class="technique-grid">
+            <div class="technique-card">
+                <h3><i class="fas fa-columns"></i> Cornell Notes</h3>
+                <p><strong>Best for:</strong> Lectures and textbook reading</p>
+                <ul>
+                    <li>Divide page into <strong>3 sections</strong></li>
+                    <li>Notes (right), Cues (left), Summary (bottom)</li>
+                    <li><strong>Perfect for review</strong> and self-testing</li>
+                    <li>Encourages active learning</li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Self-testing</span>
+                    <span class="card-tag">Structured</span>
+                    <span class="card-tag">Exam-ready</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-project-diagram"></i> Mind Mapping</h3>
+                <p><strong>Best for:</strong> Complex topics with multiple connections</p>
+                <ul>
+                    <li><strong>Central topic</strong> in the middle</li>
+                    <li>Branch out related concepts</li>
+                    <li>Use <strong>colours and symbols</strong></li>
+                    <li>Shows relationships clearly</li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Visual</span>
+                    <span class="card-tag">Creative</span>
+                    <span class="card-tag">Connects ideas</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-stream"></i> Timeline Notes</h3>
+                <p><strong>Best for:</strong> Chronological events and cause-effect sequences</p>
+                <ul>
+                    <li><strong>Linear progression</strong> of events</li>
+                    <li>Include dates, causes, and effects</li>
+                    <li>Visual representation of time</li>
+                    <li><strong>Easy to spot patterns</strong></li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Chronological</span>
+                    <span class="card-tag">Cause & Effect</span>
+                    <span class="card-tag">Pattern-finding</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-table"></i> Comparison Charts</h3>
+                <p><strong>Best for:</strong> Comparing civilisations, wars, and leaders</p>
+                <ul>
+                    <li><strong>Side-by-side analysis</strong></li>
+                    <li>Similarities and differences</li>
+                    <li>Organised in rows and columns</li>
+                    <li>Great for <strong>exam preparation</strong></li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Comparison</span>
+                    <span class="card-tag">Organised</span>
+                    <span class="card-tag">Exam prep</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-sitemap"></i> Cause &amp; Effect</h3>
+                <p><strong>Best for:</strong> Understanding historical consequences</p>
+                <ul>
+                    <li>Clear <strong>cause-effect relationships</strong></li>
+                    <li>Multiple causes, single effect</li>
+                    <li><strong>Chain reactions</strong> mapped visually</li>
+                    <li>Critical thinking development</li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Critical thinking</span>
+                    <span class="card-tag">Analysis</span>
+                    <span class="card-tag">Chains</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-user-circle"></i> Character Profiles</h3>
+                <p><strong>Best for:</strong> Historical figures and biographies</p>
+                <ul>
+                    <li>Background information</li>
+                    <li><strong>Key achievements</strong></li>
+                    <li>Impact on history</li>
+                    <li><strong>Personal characteristics</strong></li>
+                </ul>
+                <div class="card-tags">
+                    <span class="card-tag">Biographies</span>
+                    <span class="card-tag">Figures</span>
+                    <span class="card-tag">Impact</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pro-tip">
+            <h4><i class="fas fa-lightbulb"></i> Pro Tip — Combine Techniques</h4>
+            <p>Use <strong>timeline notes</strong> for chronology, then create <strong>character profiles</strong> for key figures, and <strong>mind maps</strong> to show how everything connects. The most effective students never rely on just one method.</p>
+        </div>
+    </div>
+
+    <!-- ─── TEMPLATES ─── -->
+    <div id="templates" class="tab-content">
+        <span class="section-tag">Templates</span>
+        <h2 class="section-heading"><i class="fas fa-clipboard-list"></i> Note Templates</h2>
+        <p class="section-subtitle">Ready-to-use templates — click any section to expand it and download.</p>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>📝 Cornell Notes Template</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="cornell-grid">
+                <div class="cornell-cues">
+                    <strong>Cues &amp; Questions:</strong><br><br>
+                    • Key terms<br>• Important dates<br>• Study questions<br>• Memory triggers<br><br>
+                    <em>Example:</em><br>
+                    • WWI start date?<br>• Main causes?<br>• Alliance system?
+                </div>
+                <div class="cornell-notes">
+                    <strong>Notes:</strong><br><br>
+                    <strong>World War I (1914–1918)</strong><br>
+                    – Assassination of Archduke Franz Ferdinand<br>
+                    – Alliance system: Triple Alliance vs Triple Entente<br>
+                    – Immediate cause vs long-term tensions<br>
+                    – Mobilisation of armies across Europe<br>
+                    – Trench warfare on Western Front<br>
+                    – New technologies: poison gas, machine guns<br>
+                    – US entry in 1917<br>
+                    – Russian Revolution and exit from war
+                </div>
+                <div class="cornell-summary">
+                    <strong>Summary:</strong><br>
+                    WWI was triggered by the assassination of Archduke Franz Ferdinand but had deeper roots in European tensions, alliance systems, and imperialism. The war introduced new forms of warfare and ended with significant political changes across Europe.
+                </div>
+            </div>
+            <button class="dl-btn" onclick="downloadTemplate('cornell')"><i class="fas fa-download"></i> Download Cornell Template</button>
+        </div>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>🗓️ Timeline Template</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="timeline">
+                <div class="t-item">
+                    <div class="t-date">1914</div>
+                    <div class="t-body">
+                        <strong>June 28:</strong> Assassination of Archduke Franz Ferdinand<br>
+                        <strong>July 28:</strong> Austria-Hungary declares war on Serbia<br>
+                        <strong>August:</strong> Germany invades Belgium; Britain declares war
+                    </div>
+                </div>
+                <div class="t-item">
+                    <div class="t-date">1917</div>
+                    <div class="t-body">
+                        <strong>April:</strong> United States enters the war<br>
+                        <strong>November:</strong> Russian Revolution begins
+                    </div>
+                </div>
+                <div class="t-item">
+                    <div class="t-date">1918</div>
+                    <div class="t-body">
+                        <strong>November 11:</strong> Armistice signed, fighting ends<br>
+                        <strong>Impact:</strong> 16+ million deaths, empires collapse
+                    </div>
+                </div>
+            </div>
+            <button class="dl-btn" onclick="downloadTemplate('timeline')"><i class="fas fa-download"></i> Download Timeline Template</button>
+        </div>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>📊 Comparison Chart Template</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="sample-note" style="padding:0; background:transparent; border:none;">
+                <table class="comp-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Allied Powers</th>
+                        <th>Central Powers</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Main Countries</strong></td>
+                        <td>Britain, France, Russia, USA</td>
+                        <td>Germany, Austria-Hungary, Ottoman Empire</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Advantages</strong></td>
+                        <td>Naval supremacy, colonies, resources</td>
+                        <td>Central location, strong military</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strategy</strong></td>
+                        <td>Blockade, attrition warfare</td>
+                        <td>Quick victory, two-front war</td>
+                    </tr>
+                </table>
+            </div>
+            <button class="dl-btn" onclick="downloadTemplate('comparison')" style="margin-top:16px;"><i class="fas fa-download"></i> Download Comparison Template</button>
+        </div>
+    </div>
+
+    <!-- ─── EXAMPLES ─── -->
+    <div id="examples" class="tab-content">
+        <span class="section-tag">Sample Notes</span>
+        <h2 class="section-heading"><i class="fas fa-book-open"></i> Sample Notes</h2>
+        <p class="section-subtitle">Real-world examples of each technique applied to Class 12 History topics.</p>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>🇫🇷 French Revolution — Comprehensive Notes</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="sample-note">
+                <h3>French Revolution (1789–1799)</h3>
+                <h4>I. Causes</h4>
+                <ul>
+                    <li><strong>Economic:</strong> Financial crisis, heavy taxation, poor harvests</li>
+                    <li><strong>Social:</strong> Inequality between estates, bourgeoisie frustration</li>
+                    <li><strong>Political:</strong> Absolute monarchy, lack of representation</li>
+                    <li><strong>Intellectual:</strong> Enlightenment ideas, questioning authority</li>
+                </ul>
+                <h4>II. Key Events Timeline</h4>
+                <ul>
+                    <li><strong>1789:</strong> Estates-General → National Assembly → Tennis Court Oath → Storming of Bastille</li>
+                    <li><strong>1789–1792:</strong> Constitutional Monarchy phase</li>
+                    <li><strong>1792–1794:</strong> Radical Republic, Reign of Terror</li>
+                    <li><strong>1794–1799:</strong> Thermidorian Reaction, Directory</li>
+                </ul>
+                <h4>III. Key Figures</h4>
+                <ul>
+                    <li><strong>Robespierre:</strong> Leader of Jacobins, architect of the Terror</li>
+                    <li><strong>Danton:</strong> Moderate revolutionary, executed during the Terror</li>
+                    <li><strong>Marat:</strong> Radical journalist, assassinated by Charlotte Corday</li>
+                </ul>
+                <h4>IV. Impact &amp; Significance</h4>
+                <ul>
+                    <li>End of feudalism and absolute monarchy in France</li>
+                    <li>Declaration of Rights of Man and Citizen</li>
+                    <li>Spread of revolutionary and nationalist ideas across Europe</li>
+                    <li>Rise of Napoleon Bonaparte</li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>🏭 Industrial Revolution — Mind Map Style</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="mind-map-center">
+                INDUSTRIAL REVOLUTION (1760–1840)
+            </div>
+            <div class="mind-map-grid">
+                <div class="mind-cluster mc-blue">
+                    <h4>Causes</h4>
+                    • Agricultural Revolution<br>
+                    • Population growth<br>
+                    • Capital accumulation<br>
+                    • Natural resources<br>
+                    • Transport improvements
+                </div>
+                <div class="mind-cluster mc-orange">
+                    <h4>Inventions</h4>
+                    • Steam engine (Watt)<br>
+                    • Spinning jenny<br>
+                    • Power loom<br>
+                    • Cotton gin<br>
+                    • Railways &amp; steamships
+                </div>
+                <div class="mind-cluster mc-green">
+                    <h4>Social Effects</h4>
+                    • Urbanisation<br>
+                    • Factory system<br>
+                    • Working class emergence<br>
+                    • Child labour<br>
+                    • New social classes
+                </div>
+                <div class="mind-cluster mc-amber">
+                    <h4>Economic Impact</h4>
+                    • Mass production<br>
+                    • Capitalism growth<br>
+                    • Banking development<br>
+                    • International trade<br>
+                    • Standard of living changes
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── MEMORY ─── -->
+    <div id="memory" class="tab-content">
+        <span class="section-tag">Memory</span>
+        <h2 class="section-heading"><i class="fas fa-brain"></i> Memory Enhancement Strategies</h2>
+        <p class="section-subtitle">Science-backed techniques to lock historical facts into your <strong>long-term memory</strong>.</p>
+
+        <div class="quick-tips">
+            <div class="quick-tip-card">
+                <i class="fas fa-redo"></i>
+                <h4>Spaced Repetition</h4>
+                <p>Review notes after <strong>1 day, 3 days, 1 week, and 1 month</strong> for maximum retention.</p>
+            </div>
+            <div class="quick-tip-card">
+                <i class="fas fa-puzzle-piece"></i>
+                <h4>Acronyms &amp; Mnemonics</h4>
+                <p>Create memorable phrases. e.g. <strong>"MAIN"</strong> for causes of WWI — Militarism, Alliances, Imperialism, Nationalism.</p>
+            </div>
+            <div class="quick-tip-card">
+                <i class="fas fa-palette"></i>
+                <h4>Colour Coding</h4>
+                <p>Use consistent colours: <strong>Red</strong> for wars, <strong>Blue</strong> for politics, <strong>Green</strong> for economics, <strong>Yellow</strong> for social changes.</p>
+            </div>
+            <div class="quick-tip-card">
+                <i class="fas fa-link"></i>
+                <h4>Make Connections</h4>
+                <p>Link <strong>new information</strong> to what you already know. Compare events across different time periods.</p>
+            </div>
+            <div class="quick-tip-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>Visual Associations</h4>
+                <p>Use <strong>maps, diagrams, and flowcharts</strong>. Visual memory is often stronger than text memory.</p>
+            </div>
+            <div class="quick-tip-card">
+                <i class="fas fa-comments"></i>
+                <h4>Teach Others</h4>
+                <p><strong>Explain concepts</strong> to classmates or family. Teaching forces you to organise and clarify your understanding.</p>
+            </div>
+        </div>
+
+        <div class="pro-tip">
+            <h4><i class="fas fa-star"></i> The 3-2-1 Technique</h4>
+            <p>
+                <strong>3 Things:</strong> What are the 3 most important points?<br>
+                <strong>2 Questions:</strong> What 2 questions do I still have?<br>
+                <strong>1 Connection:</strong> How does this connect to something I already know?
+            </p>
+        </div>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>🏛️ Memory Palace Technique for History</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <h4 style="color:var(--violet);margin-bottom:12px;">Creating a Historical Memory Palace</h4>
+            <ol class="palace-list">
+                <li><strong>Choose a familiar location:</strong> Your house, school, or neighbourhood</li>
+                <li><strong>Create a mental route:</strong> Front door → living room → kitchen → bedroom</li>
+                <li><strong>Place historical events:</strong>
+                    <ul>
+                        <li>Front door: Start of French Revolution (1789)</li>
+                        <li>Living room: Reign of Terror (1793–1794)</li>
+                        <li>Kitchen: Napoleon's rise (1799)</li>
+                        <li>Bedroom: Congress of Vienna (1815)</li>
+                    </ul>
+                </li>
+                <li><strong>Add vivid details:</strong> Imagine Robespierre sitting in your living room chair, guillotine in the corner</li>
+                <li><strong>Practice the route:</strong> Walk through mentally, adding more details each time</li>
+            </ol>
+        </div>
+
+        <div class="tip-box-wrapper">
+            <div class="tip-box">
+                <div class="tip-box-badge"><span class="badge-dot"></span> Memory Tip</div>
+                <div class="tip-box-icon">🧠</div>
+                <div class="tip-box-content">
+                    <h3><strong>Spaced repetition</strong> is the single most powerful memory tool.</h3>
+                    <p>Returning to your notes at <strong>increasing intervals</strong> — 1 day, 3 days, 1 week, 1 month — trains your brain to store information in <strong>long-term memory</strong> rather than forgetting it overnight.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── REVISION ─── -->
+    <div id="revision" class="tab-content">
+        <span class="section-tag">Revision</span>
+        <h2 class="section-heading"><i class="fas fa-sync-alt"></i> Effective Revision Strategies</h2>
+        <p class="section-subtitle">Systematic approaches to <strong>consolidate your knowledge</strong> and perform your best on exam day.</p>
+
+        <div class="technique-grid">
+            <div class="technique-card">
+                <h3><i class="fas fa-clock"></i> The 50-10 Rule</h3>
+                <p>Study intensively for <strong>50 minutes</strong>, then take a <strong>10-minute break</strong>. Prevents mental fatigue and improves focus.</p>
+                <div class="schedule-note">
+                    <strong>Example Schedule:</strong><br>
+                    9:00–9:50 → French Revolution<br>
+                    9:50–10:00 → Break<br>
+                    10:00–10:50 → Industrial Revolution
+                </div>
+                <div class="card-tags" style="margin-top:16px;">
+                    <span class="card-tag">Focus</span><span class="card-tag">Productivity</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-question-circle"></i> Active Recall</h3>
+                <p>Test yourself <strong>without looking at notes</strong>. Create flashcards or practice questions to strengthen memory retrieval.</p>
+                <div class="schedule-note">
+                    <strong>Try asking:</strong><br>
+                    • What caused…?<br>
+                    • Who was involved in…?<br>
+                    • What were the effects of…?
+                </div>
+                <div class="card-tags" style="margin-top:16px;">
+                    <span class="card-tag">Self-testing</span><span class="card-tag">Flashcards</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-calendar-check"></i> Review Schedule</h3>
+                <p>Create a <strong>systematic review plan</strong> covering all topics multiple times before exams.</p>
+                <div class="schedule-note">
+                    <strong>Weekly Plan:</strong><br>
+                    Mon → Ancient History<br>
+                    Tue → Medieval Period<br>
+                    Wed → Renaissance<br>
+                    Thu → Modern Era<br>
+                    Fri → Review &amp; Practice
+                </div>
+                <div class="card-tags" style="margin-top:16px;">
+                    <span class="card-tag">Planned</span><span class="card-tag">Systematic</span>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3><i class="fas fa-edit"></i> Rewrite &amp; Summarise</h3>
+                <p>Condense your notes into <strong>shorter summaries</strong>. Forces you to identify the most important information.</p>
+                <div class="schedule-note">
+                    <strong>Progressive summarising:</strong><br>
+                    5 pages → 2 pages → 1 page → Key points card
+                </div>
+                <div class="card-tags" style="margin-top:16px;">
+                    <span class="card-tag">Condensing</span><span class="card-tag">Clarity</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible" onclick="toggleCollapsible(this)">
+            <span>✅ Pre-Exam Checklist</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapsible-content">
+            <div class="checklist-block">
+                <h4>2 Weeks Before Exam</h4>
+                <ul>
+                    <li>Review all chapter summaries</li>
+                    <li>Create master timeline of events</li>
+                    <li>Identify weak areas for extra focus</li>
+                    <li>Organise study group sessions</li>
+                </ul>
+                <h4>1 Week Before Exam</h4>
+                <ul>
+                    <li>Practice past exam questions</li>
+                    <li>Review key dates and figures</li>
+                    <li>Create final summary cards</li>
+                    <li>Test knowledge with friends or family</li>
+                </ul>
+                <h4>Night Before Exam</h4>
+                <ul>
+                    <li>Light review of summary cards</li>
+                    <li>Prepare exam materials</li>
+                    <li>Get adequate sleep — <strong>8+ hours</strong></li>
+                    <li>Avoid cramming new information</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip-box-wrapper">
+            <div class="tip-box">
+                <div class="tip-box-badge"><span class="badge-dot"></span> Tip</div>
+                <div class="tip-box-icon">💡</div>
+                <div class="tip-box-content">
+                    <h3><strong>Consistency</strong> beats Intensity — every time.</h3>
+                    <p>Better to study <strong>30 minutes daily</strong> than 3 hours once a week. Regular engagement with the material leads to <strong>far better long-term retention</strong> and genuine understanding.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end .tab-body -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <div class="footer-logo">HistoryMaster</div>
+    <p>© 2026 HistoryMaster · Empowering Class 12 Learners Worldwide</p>
+    <p>Master history. Master learning. Master your future.</p>
+</footer>
+
+<script>
+    /* ── Tab switching ── */
+    function showTab(id, btn) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if (btn) btn.classList.add('active');
+    }
+
+    /* ── Collapsible ── */
+    function toggleCollapsible(btn) {
+        btn.classList.toggle('open');
+        const content = btn.nextElementSibling;
+        content.classList.toggle('open');
+    }
+
+    /* ── Template download ── */
+    function downloadTemplate(type) {
+        const templates = {
+            cornell: {
+                name: 'cornell-notes-template.txt',
+                text: `CORNELL NOTES TEMPLATE\nClass: _______________ Date: _______________\nTopic: _________________________________\n\nCues & Keywords:          | Notes:\n__________________________|_________________________________\n                          |\n                          |\n                          |\n__________________________|_________________________________\n\nSummary:\n_________________________________________________\n_________________________________________________`
+            },
+            timeline: {
+                name: 'timeline-template.txt',
+                text: `TIMELINE TEMPLATE\nTopic: _________________________________\n\nDate: _________  | Event: __________________________________\n                 | Details: _________________________________\n                 | Significance: ____________________________\n\nDate: _________  | Event: __________________________________\n                 | Details: _________________________________\n                 | Significance: ____________________________`
+            },
+            comparison: {
+                name: 'comparison-chart-template.txt',
+                text: `COMPARISON CHART TEMPLATE\nTopic: _________________________________\n\nAspect           | Item 1: _______   | Item 2: _______\n_________________|___________________|___________________\n                 |                   |\n                 |                   |\n_________________|___________________|___________________\n\nConclusion:\n_________________________________________________`
+            }
+        };
+        const t = templates[type];
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([t.text], {type:'text/plain'}));
+        a.download = t.name;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+
+    /* ── Scroll-in animation ── */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.technique-card, .quick-tip-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>

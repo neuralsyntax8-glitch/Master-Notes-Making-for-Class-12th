@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Education Class 12 - Note Making Guide | CBSE</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">`n    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --violet: #6c47ff;
+            --violet-dark: #4b2ecc;
+            --violet-light: #ede9ff;
+            --emerald: #00c97a;
+            --amber: #f5c842;
+            --amber-light: #fffbe6;
+            --amber-border: #e6b800;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(108,71,255,0.08);
+            --shadow-md: 0 8px 32px rgba(108,71,255,0.13);
+            --shadow-lg: 0 20px 60px rgba(108,71,255,0.18);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-pill: 999px;
+            --glass-bg: rgba(255,255,255,0.06);
+            --glass-border: rgba(255,255,255,0.1);
+            --glass-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(145deg, #0c0a1d 0%, #1a1035 30%, #0f1923 60%, #0d0d12 100%);
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        strong { font-weight: 700; color: rgba(255,255,255,0.92); }
+
+        nav {
+            position: sticky;
+            top: 0; z-index: 100;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0 40px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.45rem;
+            color: var(--violet);
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-tab {
+            background: transparent;
+            border: none;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.2s ease;
+        }
+        .nav-tab:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+        .nav-tab.active {
+            background: var(--violet);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(108,71,255,0.3);
+        }
+
+        .hero {
+            background: linear-gradient(140deg, #6c47ff 0%, #9b6dff 45%, #c084fc 80%, #f472b6 100%);
+            padding: 110px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .hero-blob-1 { width:480px; height:480px; background:rgba(255,255,255,0.12); top:-160px; right:-80px; animation: drift 10s ease-in-out infinite; }
+        .hero-blob-2 { width:280px; height:280px; background:rgba(255,255,255,0.07); bottom:-80px; left:60px; animation: drift 7s ease-in-out infinite reverse; }
+        @keyframes drift { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-28px)} }
+        .hero-inner { position:relative; z-index:2; max-width:700px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap:8px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 6px 16px; border-radius: var(--radius-pill);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 400; font-style: italic;
+            color: #fff; line-height: 1.12;
+            letter-spacing: -1px; margin-bottom: 18px;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.08rem; max-width: 560px; margin-bottom: 36px;
+        }
+        .hero strong { color: #fff; font-weight: 800; }
+        .hero-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #fff; color: var(--violet);
+            font-weight: 700; font-size: 0.95rem;
+            padding: 15px 34px; border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+        }
+        .hero-btn:hover { transform:translateY(-6px); box-shadow:0 28px 56px rgba(0,0,0,0.28); }
+
+        .tab-body { padding: 80px 40px; max-width: 1140px; margin: 0 auto; }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: block;
+            animation: fadeUp 0.45s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(20px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 14px; border-radius: var(--radius-pill);
+            margin-bottom: 12px;
+        }
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+            font-weight: 400; color: rgba(255,255,255,0.92);
+            line-height: 1.18; letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .section-heading i { color: var(--violet); font-size: 1.6rem; }
+        .section-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,0.55);
+            max-width: 580px; margin-bottom: 48px;
+        }
+
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .technique-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border-left: 5px solid var(--violet);
+            box-shadow: var(--glass-shadow);
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+        .technique-card::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(108,71,255,0.1), transparent 60%);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .technique-card:hover { transform:translateY(-8px); box-shadow:var(--glass-shadow); border-color:#c084fc; }
+        .technique-card:hover::after { opacity: 1; }
+        .technique-card h3 {
+            font-size: 1.1rem; font-weight: 800;
+            color: rgba(255,255,255,0.92); margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+            position: relative; z-index: 1;
+        }
+        .technique-card h3 i { color: var(--violet); }
+        .technique-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); margin-bottom:14px; position:relative;z-index:1; }
+        .technique-card ul {
+            padding-left: 18px; margin: 12px 0;
+            font-size: 0.9rem; color: rgba(255,255,255,0.7);
+            position: relative; z-index:1;
+        }
+        .technique-card ul li { margin-bottom: 6px; }
+        .card-tags { display:flex; flex-wrap:wrap; gap:6px; position:relative; z-index:1; margin-top:14px; }
+        .card-tag {
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.73rem; font-weight: 600;
+            padding: 3px 11px; border-radius: var(--radius-pill);
+        }
+
+        .collapsible {
+            width: 100%; text-align: left;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 10px 0 0;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            color: rgba(255,255,255,0.88);
+            display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.25s ease;
+        }
+        .collapsible:hover { background: rgba(108,71,255,0.15); border-color: var(--violet); color: var(--violet-light); }
+        .collapsible.open { background: var(--violet); color: #fff; border-color: var(--violet); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+        .collapsible.open i { transform: rotate(180deg); }
+        .collapsible i { transition: transform 0.3s ease; }
+        .collapsible-content {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08); border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .collapsible-content.open { max-height: 2400px; padding: 28px; }
+
+        .sample-note {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+        }
+        .sample-note h3 { font-size:1.1rem; color:rgba(255,255,255,0.92); margin-bottom:14px; font-family:'Instrument Serif',serif; font-style:italic; }
+        .sample-note h4 { font-size:0.92rem; font-weight:700; color:var(--violet); margin:16px 0 6px; }
+        .sample-note ul { padding-left:18px; color:rgba(255,255,255,0.7); }
+        .sample-note ul li { margin-bottom:5px; }
+
+        .pro-tip {
+            background: linear-gradient(135deg, var(--violet), #9b6dff);
+            color:#fff; border-radius:var(--radius-lg);
+            padding:28px 32px; margin:32px 0;
+            box-shadow: var(--shadow-md);
+        }
+        .pro-tip h4 { font-size:1rem; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .pro-tip h4 i { font-size:1.1rem; }
+        .pro-tip p { font-size:0.92rem; line-height:1.7; opacity:0.93; }
+        .pro-tip strong { color:#fff; }
+
+        .tip-box-wrapper { margin: 32px 0; }
+        .tip-box {
+            position:relative;
+            background:rgba(255,255,255,0.06);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:var(--radius-lg);
+            padding:36px 40px 36px 44px;
+            box-shadow:var(--glass-shadow);
+            display:flex; align-items:flex-start; gap:20px; overflow:visible;
+        }
+        .tip-box::before {
+            content:''; position:absolute;
+            left:0; top:0; bottom:0; width:5px;
+            background:linear-gradient(180deg, var(--emerald) 0%, var(--amber-border) 100%);
+            border-radius:var(--radius-lg) 0 0 var(--radius-lg);
+        }
+        .tip-box::after {
+            content:''; position:absolute;
+            bottom:-30px; right:-30px;
+            width:130px; height:130px;
+            background:var(--amber); opacity:0.10;
+            border-radius:50%; pointer-events:none;
+        }
+        .tip-box-badge {
+            position:absolute; top:-16px; left:24px;
+            display:inline-flex; align-items:center; gap:6px;
+            background:var(--emerald); color:#fff;
+            font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+            padding:5px 16px; border-radius:var(--radius-pill);
+            box-shadow:0 4px 14px rgba(0,201,122,0.35);
+        }
+        .badge-dot {
+            width:7px; height:7px; background:#fff; border-radius:50%;
+            display:inline-block; animation:pulse-dot 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        .tip-box-icon {
+            width:52px; height:52px; background:var(--amber);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:24px; flex-shrink:0;
+            box-shadow:0 4px 14px rgba(245,200,66,0.4); margin-top:2px;
+        }
+        .tip-box-content { flex:1; }
+        .tip-box-content h3 { font-size:1.15rem; font-weight:800; color:rgba(255,255,255,0.92); margin-bottom:7px; line-height:1.3; }
+        .tip-box-content p { font-size:0.94rem; color:rgba(255,255,255,0.7); line-height:1.72; }
+
+        .dl-btn {
+            display:inline-flex; align-items:center; gap:8px;
+            background: var(--emerald); color:#fff;
+            font-size:0.88rem; font-weight:600;
+            padding:10px 22px; border-radius:var(--radius-pill);
+            border:none; cursor:pointer; text-decoration:none;
+            box-shadow:0 4px 14px rgba(0,201,122,0.3);
+            transition:all 0.25s ease;
+        }
+        .dl-btn:hover { background:#009a5c; transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,201,122,0.35); }
+
+        .quick-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 0 0 40px;
+        }
+        .quick-tip-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            text-align: left;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+        }
+        .quick-tip-card:hover { border-color: var(--violet); transform:translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+        .quick-tip-card i { font-size:1.5rem; color:var(--violet); margin-bottom:10px; display:block; }
+        .quick-tip-card h4 { font-size:1rem; font-weight:700; color:rgba(255,255,255,0.92); margin-bottom:8px; }
+        .quick-tip-card p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.65; }
+        .quick-tip-card ul { padding-left:18px; font-size:0.88rem; color:rgba(255,255,255,0.7); margin-top:8px; }
+        .quick-tip-card ul li { margin-bottom:4px; }
+
+        .schedule-note { font-size:0.86rem; color:rgba(255,255,255,0.5); margin-top:12px; line-height:1.65; }
+        .schedule-note strong { color:rgba(255,255,255,0.8); }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+        .curriculum-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+        }
+        .curriculum-card:hover { border-color: var(--violet); transform:translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
+        .curriculum-card h6 { font-size:0.95rem; font-weight:700; color:rgba(255,255,255,0.92); margin-bottom:10px; }
+        .curriculum-card ul { padding-left:18px; font-size:0.85rem; color:rgba(255,255,255,0.7); margin-top:8px; }
+        .curriculum-card ul li { margin-bottom:4px; }
+
+        .progress-bar-custom {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--violet), #9b6dff);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.8s ease;
+        }
+
+        .color-code {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        .note-template {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 5px solid var(--violet);
+            padding: 24px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 1rem 0;
+        }
+        .note-template table { width:100%; border-collapse:collapse; font-size:0.88rem; margin-top:12px; }
+        .note-template th { background:var(--violet); color:#fff; padding:10px 14px; text-align:left; }
+        .note-template td { padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); vertical-align:top; }
+        .note-template tr:nth-child(even) td { background:rgba(255,255,255,0.03); }
+
+        footer {
+            background:linear-gradient(140deg, var(--violet-dark) 0%, var(--violet) 60%, #c084fc 100%);
+            color:rgba(255,255,255,0.92); text-align:center; padding:56px 40px;
+        }
+        footer .footer-logo {
+            font-family:'Instrument Serif',serif; font-style:italic;
+            font-size:2rem; color:#fff; margin-bottom:10px;
+        }
+        footer p { font-size:0.9rem; opacity:0.8; margin-top:6px; }
+
+        .nav-dropdown { position: relative; display: inline-block; }
+        .nav-dropdown-btn {
+            background: transparent; border: none;
+            padding: 8px 14px; border-radius: var(--radius-pill);
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .nav-dropdown-btn:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+        .nav-dropdown-content {
+            display: none; position: absolute;
+            top: 100%; right: 0;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md); min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 200; overflow: hidden;
+        }
+        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+        .nav-dropdown-content a {
+            display: block; padding: 12px 18px;
+            text-decoration: none; color: rgba(255,255,255,0.8);
+            font-size: 0.88rem; font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-dropdown-content a:last-child { border-bottom: none; }
+        .nav-dropdown-content a:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        @media(max-width:768px){
+            nav { padding:0 16px; height:auto; flex-wrap:wrap; gap:8px; padding:12px 16px; }
+            .nav-links { gap:4px; }
+            .hero { padding:72px 20px; }
+            .tab-body { padding:56px 20px; }
+            .tip-box { padding:32px 20px 28px 28px; flex-direction:column; }
+            .tip-box-badge { left:16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">🏃 PE Master</div>
+        <div class="nav-links">
+            <button class="nav-tab active" onclick="showTab('overview', this)"><i class="fas fa-info-circle"></i> Overview</button>
+            <button class="nav-tab" onclick="showTab('techniques', this)"><i class="fas fa-tools"></i> Techniques</button>
+            <button class="nav-tab" onclick="showTab('templates', this)"><i class="fas fa-file-alt"></i> Templates</button>
+            <button class="nav-tab" onclick="showTab('curriculum', this)"><i class="fas fa-graduation-cap"></i> Curriculum</button>
+            <button class="nav-tab" onclick="showTab('revision', this)"><i class="fas fa-sync-alt"></i> Revision</button>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn"><i class="fas fa-th"></i></button>
+                <div class="nav-dropdown-content">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="history.html"><i class="fas fa-landmark"></i> History</a>
+                    <a href="English.html"><i class="fas fa-book"></i> English</a>
+                    <a href="IP.html"><i class="fas fa-code"></i> Informatics Practices</a>
+                    <a href="political-science.html"><i class="fas fa-gavel"></i> Political Science</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">✦ CBSE Class 12 Physical Education</div>
+            <h1>Physical Education<br>Note-Making Mastery</h1>
+            <p>Your <strong>comprehensive guide</strong> to effective note-taking for CBSE Class 12 Physical Education. Master the art of capturing sports concepts, health theories, and practical techniques with <strong>proven methods</strong>.</p>
+            <a href="#" class="hero-btn" onclick="showTab('overview', document.querySelector('.nav-tab')); return false;">
+                Explore Guide <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="tab-body">
+
+        <!-- OVERVIEW -->
+        <div id="overview" class="tab-content active">
+            <span class="section-tag">Foundation</span>
+            <h2 class="section-heading"><i class="fas fa-info-circle"></i> Why Effective Note-Making Matters</h2>
+            <p class="section-subtitle">Physical Education in Class 12 covers both theoretical concepts and practical applications. Effective note-making helps you retain knowledge and excel in exams.</p>
+
+            <div class="technique-grid">
+                <div class="technique-card">
+                    <h3><i class="fas fa-brain"></i> Enhance Understanding</h3>
+                    <p>Break down complex sports concepts, rules, and health topics into digestible information. Well-structured notes make revision fast and effective.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Clarity</span>
+                        <span class="card-tag">Concepts</span>
+                        <span class="card-tag">Retention</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-clock"></i> Save Time</h3>
+                    <p>Quick revision becomes possible with well-organized, structured notes. No need to re-read the textbook — your notes are your condensed reference.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Efficiency</span>
+                        <span class="card-tag">Revision</span>
+                        <span class="card-tag">Organised</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-trophy"></i> Exam Performance</h3>
+                    <p>Better retention of sports rules, techniques, and health concepts leads to improved performance in both theory and practical assessments.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Confidence</span>
+                        <span class="card-tag">Results</span>
+                        <span class="card-tag">Practical</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> Key Benefits of Good PE Notes</h4>
+                <p>Better retention of sports rules and techniques • Easy revision before practical exams • Clear understanding of health and fitness concepts • Improved performance in both theory and practical assessments</p>
+            </div>
+
+            <span class="section-tag" style="margin-top:48px;">Organization</span>
+            <h2 class="section-heading"><i class="fas fa-sitemap"></i> Organization Strategies</h2>
+            <p class="section-subtitle">Set up your PE notes systematically for maximum efficiency.</p>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📂 Subject-wise Division</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <p style="margin-bottom:16px;">Organise your notes into main categories based on CBSE Class 12 PE curriculum:</p>
+                <div class="sample-note">
+                    <h4>Main Folders / Sections:</h4>
+                    <ul>
+                        <li><strong>Chapter 1:</strong> Planning in Sports</li>
+                        <li><strong>Chapter 2:</strong> Sports and Nutrition</li>
+                        <li><strong>Chapter 3:</strong> Yoga and Lifestyle</li>
+                        <li><strong>Chapter 4:</strong> Physical Fitness, Wellness and Lifestyle</li>
+                        <li><strong>Chapter 5:</strong> Children and Sports</li>
+                        <li><strong>Chapter 6:</strong> Test and Measurement in Sports</li>
+                        <li><strong>Chapter 7:</strong> Physiology and Injuries in Sports</li>
+                        <li><strong>Chapter 8:</strong> Biomechanics and Sports</li>
+                        <li><strong>Chapter 9:</strong> Psychology and Sports</li>
+                        <li><strong>Chapter 10:</strong> Training and Doping in Sports</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>🎨 Color-Coding System</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#ef4444;"></span> <strong>Red:</strong> Important definitions and key terms
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#3b82f6;"></span> <strong>Blue:</strong> Rules and regulations
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#10b981;"></span> <strong>Green:</strong> Techniques and methods
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#f59e0b;"></span> <strong>Orange:</strong> Examples and case studies
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#8b5cf6;"></span> <strong>Purple:</strong> Important dates and facts
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="color-code" style="background-color:#ec4899;"></span> <strong>Pink:</strong> Personal observations and insights
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📅 Chronological Organization</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <p style="margin-bottom:12px;">For topics like sports history and development:</p>
+                <div class="sample-note">
+                    <h4>Example: Olympic Games Timeline</h4>
+                    <ul>
+                        <li><strong>776 BC:</strong> Ancient Olympics in Greece</li>
+                        <li><strong>1896:</strong> Modern Olympics revived</li>
+                        <li><strong>1924:</strong> First Winter Olympics</li>
+                        <li><strong>1960:</strong> First Paralympics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TECHNIQUES -->
+        <div id="techniques" class="tab-content">
+            <span class="section-tag">Core Methods</span>
+            <h2 class="section-heading"><i class="fas fa-tools"></i> Types of PE Notes</h2>
+            <p class="section-subtitle">Different note-taking approaches for different aspects of Physical Education.</p>
+
+            <div class="technique-grid">
+                <div class="technique-card">
+                    <h3><i class="fas fa-book"></i> Theoretical Notes</h3>
+                    <p>Focus on concepts, definitions, and theoretical frameworks.</p>
+                    <p><strong>Example Topic:</strong> Components of Physical Fitness</p>
+                    <ul>
+                        <li>Cardiovascular endurance</li>
+                        <li>Muscular strength</li>
+                        <li>Flexibility</li>
+                        <li>Body composition</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Concepts</span>
+                        <span class="card-tag">Definitions</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-running"></i> Practical Notes</h3>
+                    <p>Step-by-step techniques, skills, and practical applications.</p>
+                    <p><strong>Example:</strong> Basketball Shooting Technique</p>
+                    <ul>
+                        <li>Proper stance and balance</li>
+                        <li>Ball grip and hand position</li>
+                        <li>Shooting motion and follow-through</li>
+                        <li>Common mistakes to avoid</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Skills</span>
+                        <span class="card-tag">Technique</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-gavel"></i> Rules &amp; Regulations</h3>
+                    <p>Official rules, scoring systems, and game regulations.</p>
+                    <p><strong>Example:</strong> Volleyball Basic Rules</p>
+                    <ul>
+                        <li>6 players per team on court</li>
+                        <li>Maximum 3 touches per side</li>
+                        <li>Rally point scoring system</li>
+                        <li>Net height: 2.43m (men), 2.24m (women)</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Rules</span>
+                        <span class="card-tag">Scoring</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-heartbeat"></i> Health &amp; Nutrition</h3>
+                    <p>Health concepts, nutrition facts, and wellness strategies.</p>
+                    <p><strong>Example:</strong> Balanced Diet Components</p>
+                    <ul>
+                        <li>Carbohydrates: 45-65% of total calories</li>
+                        <li>Proteins: 10-35% of total calories</li>
+                        <li>Fats: 20-35% of total calories</li>
+                        <li>Vitamins, minerals, and water</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Diet</span>
+                        <span class="card-tag">Wellness</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip — Mix Your Methods</h4>
+                <p>Use <strong>theoretical notes</strong> for study, <strong>practical notes</strong> before labs, and <strong>rules sheets</strong> for quick reference. Match the note type to the task.</p>
+            </div>
+        </div>
+
+        <!-- TEMPLATES -->
+        <div id="templates" class="tab-content">
+            <span class="section-tag">Templates</span>
+            <h2 class="section-heading"><i class="fas fa-file-alt"></i> Note-Taking Templates</h2>
+            <p class="section-subtitle">Ready-to-use structures for PE notes — click to expand and download.</p>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📋 Cornell Note-Taking Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="note-template">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6 style="font-weight:700;color:var(--violet);">Cue Column</h6>
+                            <small class="text-muted">Keywords, questions, main points</small>
+                            <div class="mt-2">
+                                <div>• Key terms</div>
+                                <div>• Questions</div>
+                                <div>• Main ideas</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <h6 style="font-weight:700;color:var(--violet);">Note-Taking Area</h6>
+                            <small class="text-muted">Detailed notes during class/study</small>
+                            <p class="mt-2">Write detailed explanations, examples, and elaborations here. Include diagrams, charts, and step-by-step processes.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <h6 style="font-weight:700;color:var(--violet);">Summary Section</h6>
+                        <small class="text-muted">Brief summary of the entire page</small>
+                        <p class="mt-2">Summarise the main points and key takeaways in 2-3 sentences.</p>
+                    </div>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('cornell')"><i class="fas fa-download"></i> Download Cornell Template</button>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>🗺️ Mind Map Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="note-template">
+                    <div class="text-center mb-3">
+                        <div style="display:inline-block;padding:16px 24px;background:var(--violet);color:#fff;border-radius:var(--radius-md);font-weight:700;">
+                            Central Topic
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div style="padding:12px;background:var(--violet-light);border-radius:var(--radius-sm);margin-bottom:12px;font-weight:600;">
+                                Branch 1: Subtopic
+                            </div>
+                            <ul>
+                                <li>Detail 1</li>
+                                <li>Detail 2</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="padding:12px;background:#d1fae5;border-radius:var(--radius-sm);margin-bottom:12px;font-weight:600;color:#065f46;">
+                                Branch 2: Subtopic
+                            </div>
+                            <ul>
+                                <li>Detail 1</li>
+                                <li>Detail 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('mindmap')"><i class="fas fa-download"></i> Download Mind Map Template</button>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📊 Sports Skills Analysis Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="note-template">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Skill Component</th>
+                                <th>Description</th>
+                                <th>Key Points</th>
+                                <th>Common Errors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Preparation Phase</strong></td>
+                                <td>Initial positioning and setup</td>
+                                <td>• Proper stance<br>• Balance<br>• Focus</td>
+                                <td>• Poor positioning<br>• Lack of balance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Execution Phase</strong></td>
+                                <td>Main action of the skill</td>
+                                <td>• Proper technique<br>• Timing<br>• Coordination</td>
+                                <td>• Incorrect form<br>• Poor timing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Follow-through</strong></td>
+                                <td>Completion of the movement</td>
+                                <td>• Complete motion<br>• Control<br>• Recovery</td>
+                                <td>• Incomplete follow-through<br>• Loss of balance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('skills')"><i class="fas fa-download"></i> Download Skills Template</button>
+            </div>
+        </div>
+
+        <!-- CURRICULUM -->
+        <div id="curriculum" class="tab-content">
+            <span class="section-tag">Syllabus</span>
+            <h2 class="section-heading"><i class="fas fa-graduation-cap"></i> CBSE Class 12 PE Curriculum Topics</h2>
+            <p class="section-subtitle">Complete chapter overview to help you plan and track your note-making progress.</p>
+
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-clipboard-check" style="color:var(--violet);"></i> Chapter 1: Planning in Sports</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Meaning and objectives of planning</li>
+                        <li>Types of tournaments</li>
+                        <li>Knockout and league tournaments</li>
+                        <li>Combination tournaments</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-apple-alt" style="color:var(--violet);"></i> Chapter 2: Sports and Nutrition</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Balanced diet and nutrition</li>
+                        <li>Macro and micro nutrients</li>
+                        <li>Nutritional requirements for sports persons</li>
+                        <li>Food myths and facts</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-leaf" style="color:var(--violet);"></i> Chapter 3: Yoga and Lifestyle</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Introduction to yoga</li>
+                        <li>Elements of yoga</li>
+                        <li>Asanas, pranayama, and meditation</li>
+                        <li>Yoga for healthy lifestyle</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-heartbeat" style="color:var(--violet);"></i> Chapter 4: Physical Fitness</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Components of physical fitness</li>
+                        <li>Factors affecting fitness</li>
+                        <li>Wellness and lifestyle</li>
+                        <li>Preventing lifestyle diseases</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-child" style="color:var(--violet);"></i> Chapter 5: Children and Sports</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Children in sports</li>
+                        <li>Talent identification</li>
+                        <li>Sports training for children</li>
+                        <li>Safety considerations</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-ruler" style="color:var(--violet);"></i> Chapter 6: Test and Measurement</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Fundamentals of test and measurement</li>
+                        <li>Classification of tests</li>
+                        <li>Fitness tests</li>
+                        <li>BMI and body composition</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-bone" style="color:var(--violet);"></i> Chapter 7: Physiology and Injuries</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Skeletal and muscular system</li>
+                        <li>Common sports injuries</li>
+                        <li>First aid and treatment</li>
+                        <li>Preventive measures</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-cogs" style="color:var(--violet);"></i> Chapter 8: Biomechanics and Sports</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Newton's laws of motion in sports</li>
+                        <li>Levers and their types</li>
+                        <li>Axis and planes of movement</li>
+                        <li>Projectile motion in sports</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-brain" style="color:var(--violet);"></i> Chapter 9: Psychology and Sports</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Learning and motor skills</li>
+                        <li>Motivation and anxiety</li>
+                        <li>Personality and sports performance</li>
+                        <li>Psychological training</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h6><i class="fas fa-exclamation-triangle" style="color:var(--violet);"></i> Chapter 10: Training and Doping</h6>
+                    <div class="progress-bar-custom"><div class="progress-fill" style="width:0%"></div></div>
+                    <ul>
+                        <li>Training principles and methods</li>
+                        <li>Doping and its effects</li>
+                        <li>Prohibited substances</li>
+                        <li>Anti-doping rules</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVISION -->
+        <div id="revision" class="tab-content">
+            <span class="section-tag">Revision</span>
+            <h2 class="section-heading"><i class="fas fa-sync-alt"></i> Pro Tips for Effective PE Note-Making</h2>
+            <p class="section-subtitle">Strategies to improve retention, connect theory to practice, and stay consistent.</p>
+
+            <div class="quick-tips">
+                <div class="quick-tip-card">
+                    <i class="fas fa-camera"></i>
+                    <h4>Use Visual Aids</h4>
+                    <ul>
+                        <li>Draw diagrams for sports techniques</li>
+                        <li>Create flowcharts for processes</li>
+                        <li>Use symbols and icons</li>
+                        <li>Include anatomical drawings</li>
+                    </ul>
+                </div>
+
+                <div class="quick-tip-card">
+                    <i class="fas fa-sync"></i>
+                    <h4>Review Regularly</h4>
+                    <ul>
+                        <li>Review notes within 24 hours</li>
+                        <li>Weekly comprehensive review</li>
+                        <li>Create summary sheets</li>
+                        <li>Practice active recall</li>
+                    </ul>
+                </div>
+
+                <div class="quick-tip-card">
+                    <i class="fas fa-link"></i>
+                    <h4>Connect Theory to Practice</h4>
+                    <ul>
+                        <li>Link concepts to real games</li>
+                        <li>Include personal experiences</li>
+                        <li>Reference current sports events</li>
+                        <li>Use professional sports examples</li>
+                    </ul>
+                </div>
+
+                <div class="quick-tip-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Digital Integration</h4>
+                    <ul>
+                        <li>Use note-taking apps</li>
+                        <li>Record technique videos</li>
+                        <li>Create digital flashcards</li>
+                        <li>Sync across devices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📅 Daily Note-Making Routine</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div style="background:var(--violet-light);padding:20px;border-radius:var(--radius-sm);height:100%;">
+                            <h6 style="font-weight:700;color:var(--violet);margin-bottom:10px;">Before Class</h6>
+                            <ul style="font-size:0.88rem;color:var(--gray-700);">
+                                <li>Review previous notes</li>
+                                <li>Prepare note-taking materials</li>
+                                <li>Set learning objectives</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background:var(--violet-light);padding:20px;border-radius:var(--radius-sm);height:100%;">
+                            <h6 style="font-weight:700;color:var(--violet);margin-bottom:10px;">During Class</h6>
+                            <ul style="font-size:0.88rem;color:var(--gray-700);">
+                                <li>Active listening and note-taking</li>
+                                <li>Ask questions for clarity</li>
+                                <li>Record key demonstrations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background:var(--violet-light);padding:20px;border-radius:var(--radius-sm);height:100%;">
+                            <h6 style="font-weight:700;color:var(--violet);margin-bottom:10px;">After Class</h6>
+                            <ul style="font-size:0.88rem;color:var(--gray-700);">
+                                <li>Review and organise notes</li>
+                                <li>Fill in missing information</li>
+                                <li>Create summary points</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>✅ Quick Reference Checklist</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 style="font-weight:700;color:var(--violet);margin-bottom:12px;">Note-Taking Essentials</h6>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Date and topic clearly marked
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Key terms highlighted
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Diagrams and visuals included
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Examples and applications noted
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Questions for clarification marked
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 style="font-weight:700;color:var(--violet);margin-bottom:12px;">Review Process</h6>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Notes reviewed within 24 hours
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Missing information filled in
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Summary created
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Connected to previous learning
+                            </li>
+                            <li style="padding:6px 0;font-size:0.9rem;color:var(--gray-700);display:flex;align-items:center;gap:10px;">
+                                <i class="fas fa-check-circle" style="color:var(--emerald);"></i> Practice questions attempted
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box-wrapper">
+                <div class="tip-box">
+                    <div class="tip-box-badge"><span class="badge-dot"></span> Reminder</div>
+                    <div class="tip-box-icon">💡</div>
+                    <div class="tip-box-content">
+                        <h3><strong>Consistency</strong> beats intensity — every time.</h3>
+                        <p>Better to study <strong>30 minutes daily</strong> than 3 hours once a week. Regular engagement with PE material leads to <strong>far better long-term retention</strong> and genuine understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end .tab-body -->
+
+    <footer>
+        <div class="footer-logo">PE Master</div>
+        <p>© 2026 PE Master · Empowering CBSE Class 12 Learners Worldwide</p>
+        <p>Master PE concepts. Master learning. Master your future.</p>
+    </footer>
+
+    <script>
+        function showTab(id, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+
+        function toggleCollapsible(btn) {
+            btn.classList.toggle('open');
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+        }
+
+        function downloadTemplate(type) {
+            const templates = {
+                cornell: {
+                    name: 'PE_Cornell_Template.txt',
+                    text: `CORNELL NOTE-TAKING TEMPLATE\nPhysical Education Class 12\n\nDate: ___________    Topic: _________________________\n\nCUE COLUMN (Keywords, Questions)     |    NOTE-TAKING AREA (Details, Examples)\n___________________________________|_______________________________________________\n                                   |\n                                   |\n                                   |\n                                   |\n                                   |\n                                   |\n                                   |\n                                   |\n                                   |\n___________________________________|_______________________________________________\n\nSUMMARY SECTION:\n________________________________________________________________________________\n________________________________________________________________________________`
+                },
+                mindmap: {
+                    name: 'PE_MindMap_Template.txt',
+                    text: `MIND MAP TEMPLATE\nPhysical Education Class 12\n\n                            [CENTRAL TOPIC]\n                                   |\n                    _______________|_______________\n                   |                               |\n              [SUBTOPIC 1]                   [SUBTOPIC 2]\n                   |                               |\n           ________|________                ______|______\n          |                 |              |             |\n     [Detail 1]        [Detail 2]     [Detail 1]   [Detail 2]\n\nInstructions:\n1. Write the main topic in the center\n2. Create branches for major subtopics\n3. Add smaller branches for details\n4. Use colors and symbols for better memory`
+                },
+                skills: {
+                    name: 'PE_Skills_Template.txt',
+                    text: `SPORTS SKILLS ANALYSIS TEMPLATE\nPhysical Education Class 12\n\nSport: ________________    Skill: ________________\n\n1. PREPARATION PHASE\n   Description: _________________________________\n   Key Points: _________________________________\n   Common Errors: ______________________________\n\n2. EXECUTION PHASE\n   Description: _________________________________\n   Key Points: _________________________________\n   Common Errors: ______________________________\n\n3. FOLLOW-THROUGH PHASE\n   Description: _________________________________\n   Key Points: _________________________________\n   Common Errors: ______________________________\n\nCOACHING POINTS:\n- ________________________________________________________________\n- ________________________________________________________________\n\nPRACTICE DRILLS:\n1. ________________________________________________________________\n2. ________________________________________________________________`
+                }
+            };
+            const t = templates[type];
+            if (!t) return;
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([t.text], {type:'text/plain'}));
+            a.download = t.name;
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.technique-card, .collapsible, .curriculum-card, .quick-tip-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            const observer2 = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bar.style.width = Math.floor(Math.random() * 30 + 70) + '%';
+                    }
+                });
+            }, { threshold: 0.3 });
+            observer2.observe(bar);
+        });
+    </script>
+</body>
+</html>

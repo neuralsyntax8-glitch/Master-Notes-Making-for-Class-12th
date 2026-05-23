@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IP Note-Taking Mastery | Class 12</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">`n    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">`n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:linear-gradient(145deg, #0c0a1d 0%, #1a1035 30%, #0f1923 60%, #0d0d12 100%);
+    --card:#ffffff;
+    --text:#181818;
+    --muted:#6d6d77;
+    --primary:#6b4cf6;
+    --primary-light:#b98cff;
+    --pink:#f279c6;
+    --border:#e8e8ef;
+    --shadow:0 12px 40px rgba(92,72,255,.12);
+    --radius:22px;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:rgba(255,255,255,0.88);
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:16px 42px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:999;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.8rem;
+    font-weight:700;
+    color:#b98cff;
+}
+
+.nav-links{
+    display:flex;
+    gap:14px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.7);
+    font-size:.9rem;
+    padding:10px 18px;
+    border-radius:999px;
+    transition:.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:linear-gradient(135deg,var(--primary),var(--pink));
+    color:white;
+    box-shadow:0 10px 30px rgba(107,76,246,.35);
+}
+
+/* HERO */
+.hero{
+    min-height:95vh;
+    display:flex;
+    align-items:center;
+    padding:120px 7% 80px;
+    background:linear-gradient(120deg,#5f45ff 0%,#9b71ff 55%,#ea73bc 100%);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-220px;
+    right:-150px;
+    filter:blur(20px);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:650px;
+    color:white;
+}
+
+.hero-tag{
+    display:inline-block;
+    padding:10px 18px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:999px;
+    font-size:.82rem;
+    margin-bottom:24px;
+    backdrop-filter:blur(12px);
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:22px;
+    font-weight:700;
+}
+
+.hero p{
+    max-width:560px;
+    line-height:1.9;
+    color:rgba(255,255,255,.9);
+    font-size:1.05rem;
+}
+
+.hero-btn{
+    margin-top:38px;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 28px;
+    background:white;
+    color:#5f45ff;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow:0 18px 50px rgba(0,0,0,.18);
+    transition:.35s ease;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+}
+
+/* MAIN */
+.wrapper{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+.section{
+    padding:90px 0;
+}
+
+.section-heading{
+    margin-bottom:40px;
+}
+
+.section-label{
+    display:inline-block;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#b98cff;
+    background:rgba(107,76,246,.2);
+    padding:8px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+}
+
+.section-heading h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.2rem;
+    margin-bottom:10px;
+    color:rgba(255,255,255,0.92);
+}
+
+.section-heading p{
+    color:rgba(255,255,255,0.55);
+    max-width:650px;
+    line-height:1.8;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:0 8px 32px rgba(0,0,0,.3);
+    transition:.35s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(107,76,246,.1),rgba(242,121,198,.06));
+    opacity:0;
+    transition:.35s;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(107,76,246,.4);
+}
+
+.card-icon{
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:18px;
+    margin-bottom:20px;
+    background:linear-gradient(135deg,var(--primary),var(--pink));
+    color:white;
+    font-size:1.3rem;
+    box-shadow:0 15px 35px rgba(107,76,246,.25);
+}
+
+.card h3{
+    margin-bottom:14px;
+    font-size:1.25rem;
+    color:rgba(255,255,255,0.92);
+}
+
+.card p{
+    color:rgba(255,255,255,0.6);
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.card ul{
+    padding-left:18px;
+    color:rgba(255,255,255,0.7);
+    line-height:1.9;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+}
+
+.tags span{
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(107,76,246,.2);
+    color:#b98cff;
+    font-size:.75rem;
+    font-weight:600;
+}
+
+/* CODE SECTION */
+.code-box{
+    background:#111827;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 25px 50px rgba(0,0,0,.25);
+}
+
+.code-top{
+    padding:18px 24px;
+    background:#1f2937;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{background:#ff5f57;}
+.yellow{background:#febc2e;}
+.green{background:#28c840;}
+
+pre{
+    overflow:auto;
+    padding:30px;
+    color:#d8dee9;
+    line-height:1.8;
+    font-size:.95rem;
+}
+
+/* NOTES */
+.note-box{
+    background:linear-gradient(135deg,#6b4cf6,#b46fff,#ef7ac7);
+    padding:34px;
+    border-radius:28px;
+    color:white;
+    box-shadow:0 20px 50px rgba(107,76,246,.28);
+}
+
+.note-box h3{
+    margin-bottom:12px;
+    font-size:1.5rem;
+}
+
+.note-box p{
+    line-height:1.9;
+    opacity:.92;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:80px;
+    padding:70px 5%;
+    background:linear-gradient(120deg,#4b2ddb,#9d63ff 60%,#d86ab3);
+    text-align:center;
+    color:white;
+}
+
+.footer h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.4rem;
+    margin-bottom:14px;
+}
+
+.footer p{
+    opacity:.85;
+}
+
+/* DROPDOWN */
+.nav-dropdown { position: relative; display: inline-block; }
+
+.nav-dropdown-btn {
+    background: transparent; border: none;
+    padding: 10px 14px; border-radius: 999px;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    font-size: .9rem; font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    display: flex; align-items: center; gap: 6px;
+    transition: .3s ease;
+}
+.nav-dropdown-btn:hover { background: rgba(107,76,246,.2); color: #b98cff; }
+
+.nav-dropdown-content {
+    display: none; position: absolute;
+    top: 100%; right: 0;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 22px; min-width: 200px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 200; overflow: hidden;
+}
+.nav-dropdown:hover .nav-dropdown-content { display: block; }
+.nav-dropdown-content a {
+    display: block; padding: 12px 18px;
+    text-decoration: none; color: rgba(255,255,255,0.8);
+    font-size: .88rem; font-weight: 500;
+    transition: .3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-dropdown-content a:last-child { border-bottom: none; }
+.nav-dropdown-content a:hover { background: rgba(107,76,246,.2); color: #b98cff; }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero h1{
+        font-size:3.6rem;
+    }
+
+    .navbar{
+        padding:14px 20px;
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+
+@media(max-width:600px){
+    .hero{
+        padding-top:170px;
+    }
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .section-heading h2{
+        font-size:2.3rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">IPMaster</div>
+
+    <div class="nav-links">
+        <a href="#techniques" class="active">Techniques</a>
+        <a href="#templates">Templates</a>
+        <a href="#examples">Examples</a>
+        <a href="#memory">Memory Tips</a>
+        <a href="#revision">Revision</a>
+        <div class="nav-dropdown">
+            <button class="nav-dropdown-btn"><i class="fas fa-th"></i></button>
+            <div class="nav-dropdown-content">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="history.html"><i class="fas fa-landmark"></i> History</a>
+                <a href="English.html"><i class="fas fa-book"></i> English</a>
+                <a href="PE.html"><i class="fas fa-running"></i> PE</a>
+                <a href="political-science.html"><i class="fas fa-gavel"></i> Political Science</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-tag">
+            <i class="fa-solid fa-graduation-cap"></i>
+            CLASS 12 INFORMATICS PRACTICES
+        </div>
+
+        <h1>Informatics Practices <br> Note-Taking Mastery</h1>
+
+        <p>
+            Your complete premium guide to effective IP note-making, Python code documentation,
+            database concepts, revision systems, and coding memory strategies for academic success.
+        </p>
+
+        <a href="#techniques" class="hero-btn">
+            Explore Techniques
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<section class="section" id="techniques">
+    <div class="wrapper">
+
+        <div class="section-heading">
+            <div class="section-label">Core Methods</div>
+            <h2>Note-Taking Techniques</h2>
+            <p>
+                Powerful systems used by top students to organize programming concepts,
+                syntax rules, database commands, and coding workflows.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+                <h3>Cornell Notes</h3>
+                <p>Perfect for Python concepts and theory-heavy IP chapters.</p>
+                <ul>
+                    <li>Divide notes into sections</li>
+                    <li>Add quick review cues</li>
+                    <li>Create short summaries</li>
+                </ul>
+                <div class="tags">
+                    <span>Self Testing</span>
+                    <span>Structured</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>Code Documentation</h3>
+                <p>Document every program with logic and examples.</p>
+                <ul>
+                    <li>Write problem statement</li>
+                    <li>Step-by-step algorithm</li>
+                    <li>Expected output section</li>
+                </ul>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Logic</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                <h3>Mind Mapping</h3>
+                <p>Visualize relationships between IP topics easily.</p>
+                <ul>
+                    <li>Connect lists, tuples, files</li>
+                    <li>Improve concept retention</li>
+                    <li>Best for quick revision</li>
+                </ul>
+                <div class="tags">
+                    <span>Visual</span>
+                    <span>Creative</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="templates">
+    <div class="wrapper">
+
+        <div class="section-heading">
+            <div class="section-label">Templates</div>
+            <h2>Premium Note Templates</h2>
+            <p>
+                Use these ready-made note structures for coding chapters, SQL queries,
+                networking concepts, and exam revision.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Programming Notes</h3>
+                <ul>
+                    <li>Definition</li>
+                    <li>Syntax</li>
+                    <li>Algorithm</li>
+                    <li>Code Example</li>
+                    <li>Output</li>
+                    <li>Common Errors</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Database Notes</h3>
+                <ul>
+                    <li>Purpose</li>
+                    <li>SQL Commands</li>
+                    <li>Query Example</li>
+                    <li>Expected Result</li>
+                    <li>Related Operations</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Networking Notes</h3>
+                <ul>
+                    <li>Definition</li>
+                    <li>Working Principle</li>
+                    <li>Advantages</li>
+                    <li>Disadvantages</li>
+                    <li>Real Applications</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="examples">
+    <div class="wrapper">
+
+        <div class="section-heading">
+            <div class="section-label">Examples</div>
+            <h2>Formatted Python Notes</h2>
+            <p>
+                Maintain professional coding notes with comments, algorithms,
+                and clear output formatting.
+            </p>
+        </div>
+
+        <div class="code-box">
+            <div class="code-top">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+
+<pre>
+# Problem: Find maximum element from a list
+
+# Algorithm:
+# 1. Take list input
+# 2. Assume first element is maximum
+# 3. Compare remaining elements
+# 4. Print final maximum value
+
+numbers = [23, 45, 67, 12, 89]
+maximum = numbers[0]
+
+for num in numbers:
+    if num > maximum:
+        maximum = num
+
+print("Maximum Number:", maximum)
+
+# Output:
+# Maximum Number: 89
+</pre>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="memory">
+    <div class="wrapper">
+
+        <div class="section-heading">
+            <div class="section-label">Memory</div>
+            <h2>Memory Enhancement Strategies</h2>
+            <p>
+                Science-backed techniques to retain Python syntax,
+                SQL commands, and theory chapters longer.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-repeat"></i></div>
+                <h3>Spaced Repetition</h3>
+                <p>Review notes after 1 day, 3 days, and 1 week.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>Color Coding</h3>
+                <p>Use separate colors for syntax, errors, and outputs.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-user-group"></i></div>
+                <h3>Teach Others</h3>
+                <p>Explaining concepts improves understanding rapidly.</p>
+            </div>
+
+        </div>
+
+        <div style="height:30px"></div>
+
+        <div class="note-box">
+            <h3>The 3-2-1 Revision Formula</h3>
+            <p>
+                3 Things learned today • 2 concepts needing improvement •
+                1 real-world application of the topic. This method drastically
+                improves retention and exam performance.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="revision">
+    <div class="wrapper">
+
+        <div class="section-heading">
+            <div class="section-label">Revision</div>
+            <h2>Effective Revision Strategy</h2>
+            <p>
+                Build a consistent revision cycle for coding practice,
+                syntax retention, and board exam preparation.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>The 50-10 Rule</h3>
+                <p>
+                    Study for 50 minutes and revise for 10 minutes.
+                    Keeps concentration high.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Active Recall</h3>
+                <p>
+                    Hide your notes and rewrite Python syntax from memory.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Weekly Schedule</h3>
+                <ul>
+                    <li>Mon → Concept Review</li>
+                    <li>Wed → Coding Practice</li>
+                    <li>Fri → SQL Revision</li>
+                    <li>Sun → Full Revision</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <h2>IPMaster</h2>
+    <p>
+        Designed for Class 12 Informatics Practices students.
+        Modern UI inspired by premium educational platforms.
+    </p>
+</footer>
+
+</body>
+</html>

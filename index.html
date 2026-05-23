@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Note-Taking | Professional Guide</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --violet: #6c47ff;
+            --violet-dark: #4b2ecc;
+            --violet-light: #ede9ff;
+            --emerald: #00c97a;
+            --emerald-dark: #009a5c;
+            --amber: #f5c842;
+            --amber-light: #fffbe6;
+            --amber-border: #e6b800;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(108,71,255,0.08);
+            --shadow-md: 0 8px 32px rgba(108,71,255,0.13);
+            --shadow-lg: 0 20px 60px rgba(108,71,255,0.18);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --radius-pill: 999px;
+            --glass-bg: rgba(255,255,255,0.06);
+            --glass-border: rgba(255,255,255,0.1);
+            --glass-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        strong {
+            font-weight: 700;
+            color: rgba(255,255,255,0.92);
+        }
+
+        .hero strong {
+            color: #fff;
+            font-weight: 800;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(145deg, #0c0a1d 0%, #1a1035 30%, #0f1923 60%, #0d0d12 100%);
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ──────────────────── NAV ──────────────────── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0 40px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            color: var(--violet);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links { display: flex; gap: 32px; }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--violet); }
+
+        /* ──────────────────── HERO ──────────────────── */
+        .hero {
+            background: linear-gradient(140deg, #6c47ff 0%, #9b6dff 45%, #c084fc 80%, #f472b6 100%);
+            padding: 120px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .hero-blob-1 {
+            width: 480px; height: 480px;
+            background: rgba(255,255,255,0.12);
+            top: -160px; right: -80px;
+            animation: drift 10s ease-in-out infinite;
+        }
+        .hero-blob-2 {
+            width: 280px; height: 280px;
+            background: rgba(255,255,255,0.07);
+            bottom: -80px; left: 60px;
+            animation: drift 7s ease-in-out infinite reverse;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-28px); }
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 740px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 400;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.12;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 560px;
+            margin-bottom: 40px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: var(--violet);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 16px 36px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+        }
+        .hero-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 56px rgba(0,0,0,0.28);
+        }
+
+        /* ──────────────────── SECTIONS ──────────────────── */
+        section { padding: 96px 40px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(108,71,255,0.2);
+            color: var(--violet-light);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 14px;
+        }
+
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 3.5vw, 2.9rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.92);
+            line-height: 1.18;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            font-size: 1.02rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 580px;
+            margin-bottom: 60px;
+        }
+
+        /* ──────────────────── FEATURE GRID ──────────────────── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 28px;
+        }
+
+        .feature-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .feat-icon {
+            width: 52px; height: 52px;
+            background: rgba(108,71,255,0.2);
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feat-text h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: 6px;
+        }
+        .feat-text p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.65;
+        }
+
+        /* ──────────────────── METHOD CARDS ──────────────────── */
+        #methods { background: transparent; }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 28px;
+        }
+
+        .method-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            border-left: 5px solid var(--violet);
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .method-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--violet-light), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: #c084fc;
+        }
+        .method-card:hover::after { opacity: 1; }
+
+        .method-icon {
+            width: 62px; height: 62px;
+            background: linear-gradient(135deg, var(--violet), #9b6dff);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+            margin-bottom: 22px;
+            position: relative; z-index: 1;
+            box-shadow: 0 8px 20px rgba(108,71,255,0.28);
+        }
+
+        .method-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: 10px;
+            position: relative; z-index: 1;
+        }
+
+        .method-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 18px;
+            position: relative; z-index: 1;
+        }
+
+        .method-tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+        .method-tag {
+            background: rgba(108,71,255,0.2);
+            color: var(--violet-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+        }
+
+        /* ──────────────────── TIPS SECTION ──────────────────── */
+        #tips { background: transparent; }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 4px solid var(--violet);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .tip-card h3 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* ══════════════════════════════════════════════
+           ★  TIP BOX  — The component you requested ★
+        ══════════════════════════════════════════════ */
+        .tip-box-wrapper {
+            grid-column: 1 / -1;   /* spans full width inside the grid */
+            margin-top: 12px;
+        }
+
+        .tip-box {
+            position: relative;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px 36px 44px;
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            overflow: visible;
+        }
+
+        /* ── Badge pill that sits on the top-left corner ── */
+        .tip-box-badge {
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--emerald);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 4px 14px rgba(0,201,122,0.35);
+            white-space: nowrap;
+        }
+
+        .tip-box-badge .badge-dot {
+            width: 7px; height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        /* ── Left accent stripe ── */
+        .tip-box::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--emerald) 0%, var(--amber-border) 100%);
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+        }
+
+        /* ── Bulb icon circle ── */
+        .tip-box-icon {
+            width: 52px; height: 52px;
+            background: var(--amber);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(245,200,66,0.4);
+            margin-top: 2px;
+        }
+
+        /* ── Text content ── */
+        .tip-box-content { flex: 1; }
+
+        .tip-box-content h3 {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.92);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .tip-box-content p {
+            font-size: 0.96rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.72;
+        }
+
+        /* ── Subtle decorative corner glow ── */
+        .tip-box::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; right: -30px;
+            width: 130px; height: 130px;
+            background: var(--amber);
+            opacity: 0.10;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* ──────────────────── REVISION STRATEGIES ──────────────────── */
+        .revision-section { background: transparent; }
+
+        .revision-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 8px;
+            max-width: 560px;
+        }
+
+        .revision-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.02rem;
+            color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .revision-list li:hover {
+            transform: translateX(6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .revision-list li::before {
+            content: '✦';
+            color: var(--violet);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* ──────────────────── FOOTER ──────────────────── */
+        footer {
+            background: linear-gradient(140deg, var(--violet-dark) 0%, var(--violet) 60%, #c084fc 100%);
+            color: rgba(255,255,255,0.92);
+            text-align: center;
+            padding: 56px 40px;
+        }
+
+        footer .footer-logo {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+
+        /* ──────────────────── DROPDOWN ──────────────────── */
+        .nav-dropdown { position: relative; display: inline-block; }
+
+        .nav-dropdown-btn {
+            background: transparent; border: none;
+            padding: 8px 14px; border-radius: var(--radius-pill);
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .nav-dropdown-btn:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        .nav-dropdown-content {
+            display: none; position: absolute;
+            top: 100%; right: 0;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md); min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 200; overflow: hidden;
+        }
+        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+        .nav-dropdown-content a {
+            display: block; padding: 12px 18px;
+            text-decoration: none; color: rgba(255,255,255,0.8);
+            font-size: 0.88rem; font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-dropdown-content a:last-child { border-bottom: none; }
+        .nav-dropdown-content a:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        .subj-grid { 
+            display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+            margin-top: 40px;
+        }
+        .subj-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px; min-width: 200px;
+            text-decoration: none; color: rgba(255,255,255,0.88);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .subj-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            border-color: var(--violet);
+        }
+        .subj-card i { font-size: 2rem; color: var(--violet); margin-bottom: 12px; display: block; }
+        .subj-card span { font-size: 1rem; font-weight: 600; }
+
+        /* ──────────────────── RESPONSIVE ──────────────────── */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            section { padding: 72px 20px; }
+            .hero { padding: 80px 20px; }
+            .tip-box { padding: 32px 24px 28px 32px; flex-direction: column; }
+            .tip-box-badge { left: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─────────────── NAV ─────────────── -->
+<nav>
+    <div class="nav-logo">📚 NotesMaster</div>
+    <div class="nav-links">
+        <a href="#why">Why It Matters</a>
+        <a href="#methods">Methods</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#tips">Tips</a>
+        <a href="#revision">Revision</a>
+        <div class="nav-dropdown">
+            <button class="nav-dropdown-btn"><i class="fas fa-th"></i></button>
+            <div class="nav-dropdown-content">
+                <a href="history.html"><i class="fas fa-landmark"></i> History</a>
+                <a href="English.html"><i class="fas fa-book"></i> English</a>
+                <a href="PE.html"><i class="fas fa-running"></i> PE</a>
+                <a href="IP.html"><i class="fas fa-code"></i> Informatics Practices</a>
+                <a href="political-science.html"><i class="fas fa-gavel"></i> Political Science</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ─────────────── HERO ─────────────── -->
+<section class="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-inner">
+        <div class="hero-eyebrow">✦ Study Smarter</div>
+        <h1>Master the Art of<br>Note-Making</h1>
+        <p>Transform your learning with <strong>proven note-taking techniques</strong>. Boost <strong>retention</strong>, ace exams, and develop <strong>deeper understanding</strong>.</p>
+        <a href="#why" class="hero-btn">Start Learning Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- ─────────────── WHY IT MATTERS ─────────────── -->
+<section id="why">
+    <div class="section-inner">
+        <span class="section-tag">Foundation</span>
+        <h2 class="section-heading">Why Note-Making Matters</h2>
+        <p class="section-subtitle"><strong>Effective note-taking</strong> is the cornerstone of <strong>academic excellence</strong> and lifelong <strong>professional growth</strong>.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feat-icon">📖</div>
+                <div class="feat-text">
+                    <h3>Better Understanding</h3>
+                    <p><strong>Actively engage</strong> with material and clarify <strong>complex concepts</strong> through your own words.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🧠</div>
+                <div class="feat-text">
+                    <h3>Enhanced Memory</h3>
+                    <p><strong>Double your retention</strong> through active writing and <strong>systematic organisation</strong>.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">⚡</div>
+                <div class="feat-text">
+                    <h3>Efficient Study</h3>
+                    <p>Save time with <strong>well-organised notes</strong> that make revision <strong>quick and effective</strong>.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">🎯</div>
+                <div class="feat-text">
+                    <h3>Better Grades</h3>
+                    <p>Improve <strong>exam performance</strong> with <strong>structured, comprehensive notes</strong>.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">💡</div>
+                <div class="feat-text">
+                    <h3>Critical Thinking</h3>
+                    <p><strong>Analyse and synthesise</strong> information to develop <strong>deeper insights</strong>.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feat-icon">📊</div>
+                <div class="feat-text">
+                    <h3>Professional Growth</h3>
+                    <p>Build <strong>documentation skills</strong> that are valuable in <strong>any career path</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─────────────── METHODS ─────────────── -->
+<section id="methods">
+    <div class="section-inner">
+        <span class="section-tag">Techniques</span>
+        <h2 class="section-heading">Popular Note-Taking Methods</h2>
+        <p class="section-subtitle">Choose the technique that <strong>best aligns</strong> with your <strong>learning style</strong> and subject matter.</p>
+
+        <div class="method-grid">
+            <div class="method-card">
+                <div class="method-icon">📝</div>
+                <h3>Cornell Method</h3>
+                <p>Divide your page into <strong>notes, cues, and summary sections</strong> for organised review.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Great for revision</span>
+                    <span class="method-tag">Structured</span>
+                    <span class="method-tag">Exam-ready</span>
+                </div>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">🗺️</div>
+                <h3>Mind Mapping</h3>
+                <p>Create <strong>visual connections</strong> between ideas with <strong>branches and sub-branches</strong>.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Visual learning</span>
+                    <span class="method-tag">Creative</span>
+                    <span class="method-tag">Connects ideas</span>
+                </div>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">📋</div>
+                <h3>Outline Method</h3>
+                <p>Organise information <strong>hierarchically</strong> with <strong>main points and sub-points</strong>.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Logical</span>
+                    <span class="method-tag">Easy to follow</span>
+                    <span class="method-tag">Clear hierarchy</span>
+                </div>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">📊</div>
+                <h3>Matrix Method</h3>
+                <p>Use <strong>tables to compare and contrast</strong> information across multiple topics.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Comparison</span>
+                    <span class="method-tag">Organised</span>
+                    <span class="method-tag">Visual clarity</span>
+                </div>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">📱</div>
+                <h3>Digital Notes</h3>
+                <p>Leverage technology for <strong>searchable, synced</strong>, and <strong>organised digital notes</strong>.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Always accessible</span>
+                    <span class="method-tag">Searchable</span>
+                    <span class="method-tag">Cloud backup</span>
+                </div>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">🎙️</div>
+                <h3>Audio Notes</h3>
+                <p>Record lectures and create <strong>verbal summaries</strong> for <strong>auditory learners</strong>.</p>
+                <div class="method-tags">
+                    <span class="method-tag">Hands-free</span>
+                    <span class="method-tag">Quick capture</span>
+                    <span class="method-tag">Multi-tasking</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─────────────── SUBJECTS ─────────────── -->
+<section id="subjects" style="padding: 80px 40px;">
+    <div class="section-inner" style="text-align: center;">
+        <span class="section-tag">Explore</span>
+        <h2 class="section-heading" style="justify-content: center;">Choose Your Subject</h2>
+        <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            Dive into <strong>subject-specific</strong> note-taking guides tailored for <strong>Class 12</strong>.
+        </p>
+        <div class="subj-grid">
+            <a href="history.html" class="subj-card">
+                <i class="fas fa-landmark"></i>
+                <span>History</span>
+            </a>
+            <a href="English.html" class="subj-card">
+                <i class="fas fa-book"></i>
+                <span>English</span>
+            </a>
+            <a href="PE.html" class="subj-card">
+                <i class="fas fa-running"></i>
+                <span>Physical Education</span>
+            </a>
+            <a href="IP.html" class="subj-card">
+                <i class="fas fa-code"></i>
+                <span>Informatics Practices</span>
+            </a>
+            <a href="political-science.html" class="subj-card">
+                <i class="fas fa-gavel"></i>
+                <span>Political Science</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ─────────────── TIPS ─────────────── -->
+<section id="tips">
+    <div class="section-inner">
+        <span class="section-tag">Expert Tips</span>
+        <h2 class="section-heading">Tips for Better Notes</h2>
+        <p class="section-subtitle">Implement these strategies to <strong>maximise</strong> your note-taking <strong>effectiveness</strong> every session.</p>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3>📌 Be Selective</h3>
+                <p>Don't write everything. Focus on <strong>key concepts, definitions, and examples</strong>. <strong>Quality over quantity</strong> always wins.</p>
+            </div>
+            <div class="tip-card">
+                <h3>🎨 Use Colour &amp; Symbols</h3>
+                <p>Highlight important points, use icons, and <strong>colour-code topics</strong> for <strong>visual organisation</strong> and easy recall.</p>
+            </div>
+            <div class="tip-card">
+                <h3>⏱️ Review Regularly</h3>
+                <p>Review notes <strong>within 24 hours</strong>, then weekly. <strong>Spaced repetition</strong> strengthens memory and understanding.</p>
+            </div>
+            <div class="tip-card">
+                <h3>📚 Summarise</h3>
+                <p>Create <strong>concise summaries</strong> at the end of each chapter or lecture to <strong>reinforce your learning</strong>.</p>
+            </div>
+            <div class="tip-card">
+                <h3>❓ Ask Questions</h3>
+                <p>Write questions in margins while taking notes. <strong>Test yourself later</strong> to identify <strong>knowledge gaps</strong>.</p>
+            </div>
+            <div class="tip-card">
+                <h3>🔗 Make Connections</h3>
+                <p>Link <strong>new information</strong> with <strong>previous knowledge</strong>. Understanding connections deepens comprehension.</p>
+            </div>
+
+            <!-- ══════════════════════════════
+                 ★  TIP BOX COMPONENT BELOW ★
+                 Copy from here ↓
+            ══════════════════════════════ -->
+            <div class="tip-box-wrapper">
+                <div class="tip-box">
+
+                    <!-- Green pill badge -->
+                    <div class="tip-box-badge">
+                        <span class="badge-dot"></span>
+                        Tip
+                    </div>
+
+                    <!-- Bulb icon -->
+                    <div class="tip-box-icon">💡</div>
+
+                    <!-- Text -->
+                    <div class="tip-box-content">
+                        <h3>Well-structured notes can save <strong>hours</strong> during revision!</h3>
+                        <p><strong>Organised notes</strong> make studying <strong>faster and more effective</strong> when exam time comes. The time you invest in structuring your notes today <strong>pays back tenfold</strong> during revision week.</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Copy up to here ↑ -->
+
+        </div>
+    </div>
+</section>
+
+<!-- ─────────────── REVISION STRATEGIES ─────────────── -->
+<section id="revision" class="revision-section">
+    <div class="section-inner">
+        <span class="section-tag">Revision</span>
+        <h2 class="section-heading">Revision Strategies</h2>
+
+        <ul class="revision-list">
+            <li><strong>Review notes</strong> within <strong>24 hours</strong>.</li>
+            <li>Use <strong>color-coded summaries</strong>.</li>
+            <li><strong>Teach the topic</strong> to someone else.</li>
+            <li>Practice <strong>retrieval regularly</strong>.</li>
+        </ul>
+
+        <!-- Tip Box -->
+        <div class="tip-box-wrapper" style="margin-top: 32px;">
+            <div class="tip-box">
+                <div class="tip-box-badge">
+                    <span class="badge-dot"></span>
+                    Tip
+                </div>
+                <div class="tip-box-icon">💡</div>
+                <div class="tip-box-content">
+                    <h3><strong>Spaced repetition</strong> boosts retention dramatically.</h3>
+                    <p>Returning to your notes at <strong>increasing intervals</strong> — after 1 day, 3 days, 1 week, then 1 month — is the single most <strong>scientifically proven</strong> method to lock information into long-term memory.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer>
+    <div class="footer-logo">NotesMaster</div>
+    <p>© 2026 NotesMaster · Empowering Learners Worldwide</p>
+    <p>Master note-taking. Master learning. Master life.</p>
+</footer>
+
+</body>
+</html>

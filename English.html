@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 English Note-Making Guide</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">`n    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --violet: #6c47ff;
+            --violet-dark: #4b2ecc;
+            --violet-light: #ede9ff;
+            --emerald: #00c97a;
+            --amber: #f5c842;
+            --amber-light: #fffbe6;
+            --amber-border: #e6b800;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(108,71,255,0.08);
+            --shadow-md: 0 8px 32px rgba(108,71,255,0.13);
+            --shadow-lg: 0 20px 60px rgba(108,71,255,0.18);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-pill: 999px;
+            --glass-bg: rgba(255,255,255,0.06);
+            --glass-border: rgba(255,255,255,0.1);
+            --glass-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(145deg, #0c0a1d 0%, #1a1035 30%, #0f1923 60%, #0d0d12 100%);
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        strong { font-weight: 700; color: rgba(255,255,255,0.92); }
+
+        nav {
+            position: sticky;
+            top: 0; z-index: 100;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0 40px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.45rem;
+            color: var(--violet);
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-tab {
+            background: transparent;
+            border: none;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.2s ease;
+        }
+        .nav-tab:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+        .nav-tab.active {
+            background: var(--violet);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(108,71,255,0.3);
+        }
+
+        .hero {
+            background: linear-gradient(140deg, #6c47ff 0%, #9b6dff 45%, #c084fc 80%, #f472b6 100%);
+            padding: 110px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .hero-blob-1 { width:480px; height:480px; background:rgba(255,255,255,0.12); top:-160px; right:-80px; animation: drift 10s ease-in-out infinite; }
+        .hero-blob-2 { width:280px; height:280px; background:rgba(255,255,255,0.07); bottom:-80px; left:60px; animation: drift 7s ease-in-out infinite reverse; }
+        @keyframes drift { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-28px)} }
+        .hero-inner { position:relative; z-index:2; max-width:700px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap:8px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 6px 16px; border-radius: var(--radius-pill);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 400; font-style: italic;
+            color: #fff; line-height: 1.12;
+            letter-spacing: -1px; margin-bottom: 18px;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.08rem; max-width: 560px; margin-bottom: 36px;
+        }
+        .hero strong { color: #fff; font-weight: 800; }
+        .hero-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #fff; color: var(--violet);
+            font-weight: 700; font-size: 0.95rem;
+            padding: 15px 34px; border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+        }
+        .hero-btn:hover { transform:translateY(-6px); box-shadow:0 28px 56px rgba(0,0,0,0.28); }
+
+        .tab-body { padding: 80px 40px; max-width: 1140px; margin: 0 auto; }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: block;
+            animation: fadeUp 0.45s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(20px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 14px; border-radius: var(--radius-pill);
+            margin-bottom: 12px;
+        }
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+            font-weight: 400; color: rgba(255,255,255,0.92);
+            line-height: 1.18; letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .section-heading i { color: var(--violet); font-size: 1.6rem; }
+        .section-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,0.55);
+            max-width: 580px; margin-bottom: 48px;
+        }
+
+        .technique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .technique-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border-left: 5px solid var(--violet);
+            box-shadow: var(--glass-shadow);
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+        .technique-card::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(108,71,255,0.1), transparent 60%);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .technique-card:hover { transform:translateY(-8px); box-shadow:var(--glass-shadow); border-color:#c084fc; }
+        .technique-card:hover::after { opacity: 1; }
+        .technique-card h3 {
+            font-size: 1.1rem; font-weight: 800;
+            color: rgba(255,255,255,0.92); margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+            position: relative; z-index: 1;
+        }
+        .technique-card h3 i { color: var(--violet); }
+        .technique-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); margin-bottom:14px; position:relative;z-index:1; }
+        .technique-card ul {
+            padding-left: 18px; margin: 12px 0;
+            font-size: 0.9rem; color: rgba(255,255,255,0.7);
+            position: relative; z-index:1;
+        }
+        .technique-card ul li { margin-bottom: 6px; }
+        .card-tags { display:flex; flex-wrap:wrap; gap:6px; position:relative; z-index:1; margin-top:14px; }
+        .card-tag {
+            background: rgba(108,71,255,0.2); color: var(--violet-light);
+            font-size: 0.73rem; font-weight: 600;
+            padding: 3px 11px; border-radius: var(--radius-pill);
+        }
+
+        .collapsible {
+            width: 100%; text-align: left;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 10px 0 0;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            color: rgba(255,255,255,0.88);
+            display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.25s ease;
+        }
+        .collapsible:hover { background: rgba(108,71,255,0.15); border-color: var(--violet); color: var(--violet-light); }
+        .collapsible.open { background: var(--violet); color: #fff; border-color: var(--violet); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+        .collapsible.open i { transform: rotate(180deg); }
+        .collapsible i { transition: transform 0.3s ease; }
+        .collapsible-content {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08); border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .collapsible-content.open { max-height: 1200px; padding: 28px; }
+
+        .sample-note {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+        }
+        .sample-note h3 { font-size:1.1rem; color:rgba(255,255,255,0.92); margin-bottom:14px; font-family:'Instrument Serif',serif; font-style:italic; }
+        .sample-note h4 { font-size:0.92rem; font-weight:700; color:var(--violet); margin:16px 0 6px; }
+        .sample-note ul { padding-left:18px; color:rgba(255,255,255,0.7); }
+        .sample-note ul li { margin-bottom:5px; }
+
+        .pro-tip {
+            background: linear-gradient(135deg, var(--violet), #9b6dff);
+            color:#fff; border-radius:var(--radius-lg);
+            padding:28px 32px; margin:32px 0;
+            box-shadow: var(--shadow-md);
+        }
+        .pro-tip h4 { font-size:1rem; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .pro-tip h4 i { font-size:1.1rem; }
+        .pro-tip p { font-size:0.92rem; line-height:1.7; opacity:0.93; }
+        .pro-tip strong { color:#fff; }
+
+        .tip-box-wrapper { margin: 32px 0; }
+        .tip-box {
+            position:relative;
+            background:rgba(255,255,255,0.06);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:var(--radius-lg);
+            padding:36px 40px 36px 44px;
+            box-shadow:var(--glass-shadow);
+            display:flex; align-items:flex-start; gap:20px; overflow:visible;
+        }
+        .tip-box::before {
+            content:''; position:absolute;
+            left:0; top:0; bottom:0; width:5px;
+            background:linear-gradient(180deg, var(--emerald) 0%, var(--amber-border) 100%);
+            border-radius:var(--radius-lg) 0 0 var(--radius-lg);
+        }
+        .tip-box::after {
+            content:''; position:absolute;
+            bottom:-30px; right:-30px;
+            width:130px; height:130px;
+            background:var(--amber); opacity:0.10;
+            border-radius:50%; pointer-events:none;
+        }
+        .tip-box-badge {
+            position:absolute; top:-16px; left:24px;
+            display:inline-flex; align-items:center; gap:6px;
+            background:var(--emerald); color:#fff;
+            font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+            padding:5px 16px; border-radius:var(--radius-pill);
+            box-shadow:0 4px 14px rgba(0,201,122,0.35);
+        }
+        .badge-dot {
+            width:7px; height:7px; background:#fff; border-radius:50%;
+            display:inline-block; animation:pulse-dot 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        .tip-box-icon {
+            width:52px; height:52px; background:var(--amber);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:24px; flex-shrink:0;
+            box-shadow:0 4px 14px rgba(245,200,66,0.4); margin-top:2px;
+        }
+        .tip-box-content { flex:1; }
+        .tip-box-content h3 { font-size:1.15rem; font-weight:800; color:rgba(255,255,255,0.92); margin-bottom:7px; line-height:1.3; }
+        .tip-box-content p { font-size:0.94rem; color:rgba(255,255,255,0.7); line-height:1.72; }
+
+        .dl-btn {
+            display:inline-flex; align-items:center; gap:8px;
+            background: var(--emerald); color:#fff;
+            font-size:0.88rem; font-weight:600;
+            padding:10px 22px; border-radius:var(--radius-pill);
+            border:none; cursor:pointer; text-decoration:none;
+            box-shadow:0 4px 14px rgba(0,201,122,0.3);
+            transition:all 0.25s ease;
+        }
+        .dl-btn:hover { background:#009a5c; transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,201,122,0.35); }
+
+        .literary-device {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 4px solid var(--violet);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        .literary-device h6 { font-size:0.95rem; font-weight:700; color:rgba(255,255,255,0.92); margin-bottom:8px; }
+        .literary-device p { font-size:0.88rem; color:rgba(255,255,255,0.7); }
+        .literary-device small { font-size:0.82rem; }
+
+        .checklist-block { background:rgba(255,255,255,0.06); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:24px; }
+        .checklist-block h4 { font-size:0.95rem; font-weight:700; color:var(--violet); margin:16px 0 8px; }
+        .checklist-block h4:first-child { margin-top:0; }
+        .checklist-block ul { padding-left:4px; list-style:none; }
+        .checklist-block ul li { padding:5px 0; font-size:0.9rem; color:rgba(255,255,255,0.7); display:flex; align-items:center; gap:10px; }
+        .checklist-block ul li::before { content:'âœ“'; color:var(--emerald); font-weight:800; flex-shrink:0; }
+
+        .schedule-note { font-size:0.86rem; color:rgba(255,255,255,0.5); margin-top:12px; line-height:1.65; }
+        .schedule-note strong { color:rgba(255,255,255,0.8); }
+
+        .highlight {
+            background: rgba(108,71,255,0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            color: var(--violet-light);
+        }
+
+        footer {
+            background:linear-gradient(140deg, var(--violet-dark) 0%, var(--violet) 60%, #c084fc 100%);
+            color:rgba(255,255,255,0.92); text-align:center; padding:56px 40px;
+        }
+        footer .footer-logo {
+            font-family:'Instrument Serif',serif; font-style:italic;
+            font-size:2rem; color:#fff; margin-bottom:10px;
+        }
+        footer p { font-size:0.9rem; opacity:0.8; margin-top:6px; }
+
+        .nav-dropdown { position: relative; display: inline-block; }
+        .nav-dropdown-btn {
+            background: transparent; border: none;
+            padding: 8px 14px; border-radius: var(--radius-pill);
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .nav-dropdown-btn:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+        .nav-dropdown-content {
+            display: none; position: absolute;
+            top: 100%; right: 0;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md); min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 200; overflow: hidden;
+        }
+        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+        .nav-dropdown-content a {
+            display: block; padding: 12px 18px;
+            text-decoration: none; color: rgba(255,255,255,0.8);
+            font-size: 0.88rem; font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-dropdown-content a:last-child { border-bottom: none; }
+        .nav-dropdown-content a:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        @media(max-width:768px){
+            nav { padding:0 16px; height:auto; flex-wrap:wrap; gap:8px; padding:12px 16px; }
+            .nav-links { gap:4px; }
+            .hero { padding:72px 20px; }
+            .tab-body { padding:56px 20px; }
+            .tip-box { padding:32px 20px 28px 28px; flex-direction:column; }
+            .tip-box-badge { left:16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">ðŸ“– EnglishMaster</div>
+        <div class="nav-links">
+            <button class="nav-tab active" onclick="showTab('fundamentals', this)"><i class="fas fa-layer-group"></i> Fundamentals</button>
+            <button class="nav-tab" onclick="showTab('techniques', this)"><i class="fas fa-tools"></i> Techniques</button>
+            <button class="nav-tab" onclick="showTab('templates', this)"><i class="fas fa-file-alt"></i> Templates</button>
+            <button class="nav-tab" onclick="showTab('examples', this)"><i class="fas fa-lightbulb"></i> Examples</button>
+            <button class="nav-tab" onclick="showTab('revision', this)"><i class="fas fa-sync-alt"></i> Revision</button>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn"><i class="fas fa-th"></i></button>
+                <div class="nav-dropdown-content">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="history.html"><i class="fas fa-landmark"></i> History</a>
+                    <a href="PE.html"><i class="fas fa-running"></i> PE</a>
+                    <a href="IP.html"><i class="fas fa-code"></i> Informatics Practices</a>
+                    <a href="political-science.html"><i class="fas fa-gavel"></i> Political Science</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">âœ¦ Class 12 English Literature</div>
+            <h1>English Note-Making<br>Mastery</h1>
+            <p>Your <strong>comprehensive guide</strong> to effective note-taking for English literature. Master literary analysis, poetry annotations, and prose summaries with <strong>proven techniques</strong>.</p>
+            <a href="#" class="hero-btn" onclick="showTab('fundamentals', document.querySelector('.nav-tab')); return false;">
+                Explore Techniques <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="tab-body">
+
+        <!-- FUNDAMENTALS -->
+        <div id="fundamentals" class="tab-content active">
+            <span class="section-tag">Foundation</span>
+            <h2 class="section-heading"><i class="fas fa-layer-group"></i> Note-Making Fundamentals</h2>
+            <p class="section-subtitle">Master the core principles of effective English literature note-taking.</p>
+
+            <div class="technique-grid">
+                <div class="technique-card">
+                    <h3><i class="fas fa-question-circle"></i> Why Effective Notes Matter</h3>
+                    <ul>
+                        <li><strong>Better Retention:</strong> Writing helps encode information in long-term memory</li>
+                        <li><strong>Quick Revision:</strong> Condensed notes save time during exam preparation</li>
+                        <li><strong>Understanding Connections:</strong> Notes help you see relationships between themes and ideas</li>
+                        <li><strong>Exam Confidence:</strong> Well-organized notes boost confidence and performance</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Retention</span>
+                        <span class="card-tag">Revision</span>
+                        <span class="card-tag">Confidence</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-lightbulb"></i> Core Principles</h3>
+                    <ul>
+                        <li><strong>Clarity:</strong> Use clear headings, bullet points, and structured layouts</li>
+                        <li><strong>Conciseness:</strong> Capture key ideas in your own words; summarise instead of copying</li>
+                        <li><strong>Connections:</strong> Link themes, characters, and literary devices</li>
+                        <li><strong>Consistency:</strong> Develop a consistent format and stick to it</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Clarity</span>
+                        <span class="card-tag">Conciseness</span>
+                        <span class="card-tag">Consistency</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-tools"></i> Tools &amp; Setup</h3>
+                    <p><strong>Physical:</strong> Quality notebooks, colored pens (blue/black/red), highlighters, sticky notes</p>
+                    <p><strong>Digital:</strong> Notion or OneNote for organised digital notes, Google Docs for collaboration, Canva for mind maps, Grammarly for writing assistance</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Notebook</span>
+                        <span class="card-tag">Digital</span>
+                        <span class="card-tag">Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip — Start Simple</h4>
+                <p>Don't try to use every technique at once. Start with one method, master it, then gradually add others. The best note-taking system is the one you'll actually <strong>use consistently</strong>.</p>
+            </div>
+        </div>
+
+        <!-- TECHNIQUES -->
+        <div id="techniques" class="tab-content">
+            <span class="section-tag">Core Methods</span>
+            <h2 class="section-heading"><i class="fas fa-tools"></i> English Note-Making Techniques</h2>
+            <p class="section-subtitle">Structured methods for literature and language study — from literary device analysis to character tracking.</p>
+
+            <div class="technique-grid">
+                <div class="technique-card">
+                    <h3><i class="fas fa-book"></i> Annotation Notes</h3>
+                    <p><strong>Best for:</strong> Prose and poetry analysis</p>
+                    <ul>
+                        <li>Highlight literary devices</li>
+                        <li>Mark key themes</li>
+                        <li>Add margin explanations</li>
+                        <li>Track symbolism</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Active Reading</span>
+                        <span class="card-tag">Close Reading</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-users"></i> Character Mapping</h3>
+                    <p><strong>Best for:</strong> Novels and drama</p>
+                    <ul>
+                        <li>Track character development</li>
+                        <li>Understand relationships</li>
+                        <li>Analyse motivations</li>
+                        <li>Visualise connections</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Visual</span>
+                        <span class="card-tag">Relationships</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-scroll"></i> Theme Notes</h3>
+                    <p><strong>Best for:</strong> Organising recurring literary themes</p>
+                    <ul>
+                        <li>Collect quotations</li>
+                        <li>Track repeated ideas</li>
+                        <li>Build essay material</li>
+                        <li>Improve interpretation</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Themes</span>
+                        <span class="card-tag">Quotations</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-search"></i> Literary Device Analysis</h3>
+                    <p><strong>Best for:</strong> Poetry and prose close reading</p>
+                    <ul>
+                        <li>Identify metaphor, simile, imagery, symbolism</li>
+                        <li>Note format: Device | Quote | Effect</li>
+                        <li>Connect devices to themes</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Poetry</span>
+                        <span class="card-tag">Analysis</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-user-circle"></i> Character Profile Method</h3>
+                    <p><strong>Best for:</strong> In-depth character study</p>
+                    <ul>
+                        <li>Physical description + personality traits</li>
+                        <li>Motivations and relationships</li>
+                        <li>Character arc across the story</li>
+                        <li>Key dialogue that reveals character</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Profiles</span>
+                        <span class="card-tag">Development</span>
+                    </div>
+                </div>
+
+                <div class="technique-card">
+                    <h3><i class="fas fa-brain"></i> Theme Identification</h3>
+                    <p><strong>Best for:</strong> Essay preparation</p>
+                    <ul>
+                        <li>Ask: what is the author saying about life?</li>
+                        <li>Track repeated words, symbols, situations</li>
+                        <li>Map connections between characters and conflicts</li>
+                    </ul>
+                    <div class="card-tags">
+                        <span class="card-tag">Critical Thinking</span>
+                        <span class="card-tag">Patterns</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip — Combine Methods</h4>
+                <p>Use <strong>annotations</strong> while reading, <strong>theme notes</strong> during revision, and <strong>character maps</strong> before writing essays. The most effective students never rely on just one method.</p>
+            </div>
+        </div>
+
+        <!-- TEMPLATES -->
+        <div id="templates" class="tab-content">
+            <span class="section-tag">Templates</span>
+            <h2 class="section-heading"><i class="fas fa-file-alt"></i> Literature Templates</h2>
+            <p class="section-subtitle">Reusable structures for English literature notes — click to expand and download.</p>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📝 Poetry Analysis Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="sample-note">
+                    <h3>Poetry Analysis Framework</h3>
+                    <h4>Title &amp; Poet</h4>
+                    <p>_________________________</p>
+                    <h4>Form &amp; Structure</h4>
+                    <ul>
+                        <li>Type: (Sonnet, Free verse, etc.)</li>
+                        <li>Rhyme scheme: (ABAB, AABB, etc.)</li>
+                        <li>Meter: (Iambic pentameter, etc.)</li>
+                        <li>Stanzas: (Number and lines per stanza)</li>
+                    </ul>
+                    <h4>Theme(s)</h4>
+                    <p>• _________________________</p>
+                    <h4>Literary Devices</h4>
+                    <ul>
+                        <li>Imagery: _______________</li>
+                        <li>Metaphor/Simile: _______</li>
+                        <li>Alliteration: __________</li>
+                        <li>Personification: _______</li>
+                    </ul>
+                    <h4>Key Quotes</h4>
+                    <p>"_______________________"<br><small>Significance: ___________</small></p>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('poetry')"><i class="fas fa-download"></i> Download Template</button>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📖 Prose Analysis Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="sample-note">
+                    <h3>Prose Analysis Framework</h3>
+                    <h4>Title &amp; Author</h4>
+                    <p>_________________________</p>
+                    <h4>Setting</h4>
+                    <ul>
+                        <li>Time: __________________</li>
+                        <li>Place: _________________</li>
+                        <li>Atmosphere: ____________</li>
+                    </ul>
+                    <h4>Main Characters</h4>
+                    <p>1. ______________________<br>2. ______________________<br>3. ______________________</p>
+                    <h4>Plot Summary</h4>
+                    <ul>
+                        <li>Exposition: _____________</li>
+                        <li>Rising Action: __________</li>
+                        <li>Climax: _______________</li>
+                        <li>Resolution: ____________</li>
+                    </ul>
+                    <h4>Themes</h4>
+                    <p>• _________________________</p>
+                    <h4>Narrative Techniques</h4>
+                    <ul>
+                        <li>Point of view: __________</li>
+                        <li>Style: ________________</li>
+                        <li>Symbolism: ____________</li>
+                    </ul>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('prose')"><i class="fas fa-download"></i> Download Template</button>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>🎭 Drama Analysis Template</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="sample-note">
+                    <h3>Drama Analysis Framework</h3>
+                    <h4>Play &amp; Playwright</h4>
+                    <p>_________________________</p>
+                    <h4>Act/Scene</h4>
+                    <p>Act ___ Scene ___</p>
+                    <h4>Characters Present</h4>
+                    <p>• _________________________</p>
+                    <h4>Key Events</h4>
+                    <ul>
+                        <li>1. ____________________</li>
+                        <li>2. ____________________</li>
+                        <li>3. ____________________</li>
+                    </ul>
+                    <h4>Dramatic Techniques</h4>
+                    <ul>
+                        <li>Soliloquy: _____________</li>
+                        <li>Aside: _______________</li>
+                        <li>Dramatic irony: _______</li>
+                        <li>Stage directions: ______</li>
+                    </ul>
+                    <h4>Themes Revealed</h4>
+                    <p>_________________________</p>
+                </div>
+                <button class="dl-btn" onclick="downloadTemplate('drama')"><i class="fas fa-download"></i> Download Template</button>
+            </div>
+
+            <div class="tip-box-wrapper">
+                <div class="tip-box">
+                    <div class="tip-box-badge"><span class="badge-dot"></span> Quick Reference</div>
+                    <div class="tip-box-icon">ðŸ’¡</div>
+                    <div class="tip-box-content">
+                        <h3>Quote Analysis Format</h3>
+                        <p><strong>Quote:</strong> "[Exact text]" | <strong>Speaker:</strong> [Character] | <strong>Context:</strong> [When/why] | <strong>Device:</strong> [If any] | <strong>Significance:</strong> [What it reveals]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAMPLES -->
+        <div id="examples" class="tab-content">
+            <span class="section-tag">Examples</span>
+            <h2 class="section-heading"><i class="fas fa-lightbulb"></i> Sample Notes</h2>
+            <p class="section-subtitle">Real-world examples of organised English literature notes using these techniques.</p>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>âœ® Shakespeare's Sonnet 18 — Poetry Analysis</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="sample-note">
+                    <h3>"Shall I compare thee to a summer's day?" — William Shakespeare</h3>
+                    <h4>Form &amp; Structure</h4>
+                    <ul>
+                        <li>Type: Shakespearean sonnet</li>
+                        <li>Rhyme scheme: ABAB CDCD EFEF GG</li>
+                        <li>Meter: Iambic pentameter</li>
+                        <li>Structure: 3 quatrains + 1 couplet</li>
+                    </ul>
+                    <h4>Theme</h4>
+                    <p><span class="highlight">Eternal beauty through poetry</span></p>
+                    <h4>Key Literary Devices</h4>
+                    <ul>
+                        <li><em>Metaphor:</em> Comparing beloved to summer's day</li>
+                        <li><em>Personification:</em> "rough winds do shake"</li>
+                        <li><em>Paradox:</em> Eternal life through mortal verse</li>
+                    </ul>
+                    <h4>Analysis</h4>
+                    <ul>
+                        <li>Lines 1-8: Summer is beautiful but imperfect</li>
+                        <li>Lines 9-12: Beloved's beauty is eternal</li>
+                        <li>Lines 13-14: Poetry grants immortality</li>
+                    </ul>
+                    <h4>Key Quote</h4>
+                    <p><em>"So long as men can breathe or eyes can see, / So long lives this, and this gives life to thee"</em></p>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>ðŸ“– "The Luncheon" by W. Somerset Maugham — Prose Analysis</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="sample-note">
+                    <h3>"The Luncheon" — W. Somerset Maugham</h3>
+                    <h4>Setting</h4>
+                    <ul>
+                        <li>Time: Flashback to past; narrated 20 years later</li>
+                        <li>Place: Foyot's restaurant, Paris</li>
+                        <li>Atmosphere: Elegant, expensive</li>
+                    </ul>
+                    <h4>Characters</h4>
+                    <ul>
+                        <li><em>Narrator:</em> Young, struggling writer (broke)</li>
+                        <li><em>Woman:</em> Middle-aged admirer (manipulative, pretentious)</li>
+                    </ul>
+                    <h4>Themes</h4>
+                    <p><span class="highlight">Exploitation of kindness</span> &middot; <span class="highlight">Social pretension</span> &middot; <span class="highlight">Poetic justice</span></p>
+                    <h4>Literary Techniques</h4>
+                    <ul>
+                        <li><em>Irony:</em> Woman becomes very fat (justice)</li>
+                        <li><em>Humor:</em> Self-deprecating narrator</li>
+                        <li><em>Contrast:</em> Past struggle vs. present success</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> Note-Making in Action</h4>
+                <p><strong>Step 1:</strong> First reading (no notes — understand the story) &rarr; <strong>Step 2:</strong> Active reading (highlight quotes, devices) &rarr; <strong>Step 3:</strong> Note creation (use templates, connect ideas) &rarr; <strong>Step 4:</strong> Review &amp; refine (add connections between themes)</p>
+            </div>
+        </div>
+
+        <!-- REVISION -->
+        <div id="revision" class="tab-content">
+            <span class="section-tag">Revision</span>
+            <h2 class="section-heading"><i class="fas fa-sync-alt"></i> Effective Revision Strategies</h2>
+            <p class="section-subtitle">Systematic approaches to consolidate your English literature knowledge and perform your best on exam day.</p>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>📅 Spaced Repetition Schedule</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 style="color:var(--violet);font-weight:700;margin-bottom:12px;">Revision Timeline</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Day 1:</strong> Take detailed notes</li>
+                            <li class="list-group-item"><strong>Day 3:</strong> Quick review (10 minutes)</li>
+                            <li class="list-group-item"><strong>Day 7:</strong> Comprehensive review (20 minutes)</li>
+                            <li class="list-group-item"><strong>Day 21:</strong> Test yourself (30 minutes)</li>
+                            <li class="list-group-item"><strong>Day 50:</strong> Final review before exam</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tip-box" style="margin:0;">
+                            <h6 style="font-weight:700;">Why spaced repetition works</h6>
+                            <p style="font-size:0.88rem;">Prevents the forgetting curve, strengthens neural pathways, improves long-term retention, and builds exam confidence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>🧠 Active Recall Techniques</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="schedule-note" style="margin:0;">
+                            <strong>Self-Testing</strong>
+                            <ul>
+                                <li>Cover notes, try to recall</li>
+                                <li>Create flashcards for quotes</li>
+                                <li>Write themes from memory</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="schedule-note" style="margin:0;">
+                            <strong>Study Groups</strong>
+                            <ul>
+                                <li>Discuss themes together</li>
+                                <li>Quiz each other</li>
+                                <li>Share different interpretations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="schedule-note" style="margin:0;">
+                            <strong>Teaching Method</strong>
+                            <ul>
+                                <li>Explain to family/friends</li>
+                                <li>Create presentations</li>
+                                <li>Make video summaries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>✅ Pre-Exam Preparation</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="checklist-block">
+                    <h4>One Week Before</h4>
+                    <ul>
+                        <li>Review all major themes</li>
+                        <li>Memorize key quotes</li>
+                        <li>Practice essay outlines</li>
+                        <li>Identify knowledge gaps</li>
+                        <li>Create quick reference sheets</li>
+                    </ul>
+                    <h4>Day Before Exam</h4>
+                    <ul>
+                        <li>Light review only</li>
+                        <li>Read key quotes once</li>
+                        <li>Get proper sleep</li>
+                        <li>Stay calm and confident</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-box-wrapper">
+                <div class="tip-box">
+                    <div class="tip-box-badge"><span class="badge-dot"></span> Tip</div>
+                    <div class="tip-box-icon">ðŸ’¡</div>
+                    <div class="tip-box-content">
+                        <h3><strong>Consistency</strong> beats intensity — every time.</h3>
+                        <p>Better to study <strong>30 minutes daily</strong> than 3 hours once a week. Regular engagement with the material leads to <strong>far better long-term retention</strong> and genuine understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end .tab-body -->
+
+    <footer>
+        <div class="footer-logo">EnglishMaster</div>
+        <p>© 2026 EnglishMaster · Empowering Class 12 Learners Worldwide</p>
+        <p>Master English literature. Master learning. Master your future.</p>
+    </footer>
+
+    <script>
+        function showTab(id, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+
+        function toggleCollapsible(btn) {
+            btn.classList.toggle('open');
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+        }
+
+        function downloadTemplate(type) {
+            const templates = {
+                poetry: {
+                    name: 'poetry-analysis-template.txt',
+                    text: `POETRY ANALYSIS TEMPLATE\n\nTitle & Poet: _________________________\n\nForm & Structure:\n- Type: (Sonnet, Free verse, etc.)\n- Rhyme scheme: (ABAB, AABB, etc.)\n- Meter: (Iambic pentameter, etc.)\n- Stanzas: (Number and lines per stanza)\n\nTheme(s):\n- _________________________\n\nLiterary Devices:\n- Imagery: _______________\n- Metaphor/Simile: _______\n- Alliteration: __________\n- Personification: _______\n\nKey Quotes:\n"_______________________"\nSignificance: ___________`
+                },
+                prose: {
+                    name: 'prose-analysis-template.txt',
+                    text: `PROSE ANALYSIS TEMPLATE\n\nTitle & Author: _________________________\n\nSetting:\n- Time: __________________\n- Place: _________________\n- Atmosphere: ____________\n\nMain Characters:\n1. ______________________\n2. ______________________\n3. ______________________\n\nPlot Summary:\n- Exposition: _____________\n- Rising Action: __________\n- Climax: _______________\n- Resolution: ____________\n\nThemes:\n- _________________________\n\nNarrative Techniques:\n- Point of view: __________\n- Style: ________________\n- Symbolism: ____________`
+                },
+                drama: {
+                    name: 'drama-analysis-template.txt',
+                    text: `DRAMA ANALYSIS TEMPLATE\n\nPlay & Playwright: _________________________\n\nAct/Scene: Act ___ Scene ___\n\nCharacters Present:\n- _________________________\n\nKey Events:\n1. ____________________\n2. ____________________\n3. ____________________\n\nDramatic Techniques:\n- Soliloquy: _____________\n- Aside: _______________\n- Dramatic irony: _______\n- Stage directions: ______\n\nThemes Revealed: _________________________`
+                }
+            };
+            const t = templates[type];
+            if (!t) return;
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([t.text], {type:'text/plain'}));
+            a.download = t.name;
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.technique-card, .collapsible').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
