@@ -184,23 +184,24 @@
             border-left: 5px solid var(--violet);
             box-shadow: var(--glass-shadow);
             position: relative; overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
         }
         .technique-card::after {
             content: '';
             position: absolute; inset: 0;
             background: linear-gradient(135deg, rgba(108,71,255,0.1), transparent 60%);
-            opacity: 0; transition: opacity 0.3s;
+            opacity: 0; transition: opacity 0.4s ease;
         }
-        .technique-card:hover { transform:translateY(-8px); box-shadow:var(--glass-shadow); border-color:#c084fc; }
+        .technique-card:hover { transform:translateY(-12px) scale(1.02); box-shadow:0 20px 60px rgba(0,0,0,0.5), 0 0 50px rgba(108,71,255,0.15); border-color:#c084fc; }
         .technique-card:hover::after { opacity: 1; }
+        .technique-card:hover h3 i { transform: scale(1.2) rotate(-6deg); }
         .technique-card h3 {
             font-size: 1.1rem; font-weight: 800;
             color: rgba(255,255,255,0.92); margin-bottom: 12px;
             display: flex; align-items: center; gap: 10px;
             position: relative; z-index: 1;
         }
-        .technique-card h3 i { color: var(--violet); }
+        .technique-card h3 i { color: var(--violet); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .technique-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); margin-bottom:14px; position:relative;z-index:1; }
         .technique-card ul {
             padding-left: 18px; margin: 12px 0;
@@ -229,10 +230,10 @@
             font-size: 1rem; font-weight: 600;
             color: rgba(255,255,255,0.88);
             display: flex; justify-content: space-between; align-items: center;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
         }
-        .collapsible:hover { background: rgba(108,71,255,0.15); border-color: var(--violet); color: var(--violet-light); }
-        .collapsible.open { background: var(--violet); color: #fff; border-color: var(--violet); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+        .collapsible:hover { background: rgba(108,71,255,0.15); border-color: var(--violet); color: var(--violet-light); transform: translateX(4px); }
+        .collapsible.open { background: var(--violet); color: #fff; border-color: var(--violet); border-radius: var(--radius-md) var(--radius-md) 0 0; transform: none; }
         .collapsible.open i { transform: rotate(180deg); }
         .collapsible i { transition: transform 0.3s ease; }
         .collapsible-content {
@@ -402,6 +403,60 @@
         }
         .nav-dropdown-content a:last-child { border-bottom: none; }
         .nav-dropdown-content a:hover { background: rgba(108,71,255,0.2); color: var(--violet-light); }
+
+        @keyframes fadeSlideUp    { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeSlideDown  { from { opacity:0; transform:translateY(-24px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeSlideLeft  { from { opacity:0; transform:translateX(36px); } to { opacity:1; transform:translateX(0); } }
+        @keyframes fadeSlideRight { from { opacity:0; transform:translateX(-36px); } to { opacity:1; transform:translateX(0); } }
+        @keyframes scaleIn { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+        @keyframes zoomIn { from { opacity:0; transform:scale(0.5) translateY(30px); } to { opacity:1; transform:scale(1) translateY(0); } }
+        @keyframes rotateIn { from { opacity:0; transform:rotate(-12deg) scale(0.85); } to { opacity:1; transform:rotate(0) scale(1); } }
+        @keyframes bounceIn { 0%{opacity:0;transform:scale(0.3)} 50%{transform:scale(1.08)} 70%{transform:scale(0.95)} 100%{opacity:1;transform:scale(1)} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+        @keyframes pulseGlow { 0%,100%{box-shadow:0 0 20px rgba(108,71,255,0.15)} 50%{box-shadow:0 0 50px rgba(108,71,255,0.35)} }
+        @keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-6deg)} 75%{transform:rotate(6deg)} }
+        @keyframes iconPop { 0%{transform:scale(1)} 40%{transform:scale(1.25) rotate(-8deg)} 70%{transform:scale(0.9)} 100%{transform:scale(1)} }
+
+        nav { animation: fadeSlideDown 0.6s ease-out both; }
+        .nav-logo { animation: fadeSlideDown 0.5s ease-out 0.08s both; }
+        .nav-tab { animation: fadeSlideDown 0.4s ease-out both; }
+        .nav-tab:nth-child(1) { animation-delay:0.12s; }
+        .nav-tab:nth-child(2) { animation-delay:0.17s; }
+        .nav-tab:nth-child(3) { animation-delay:0.22s; }
+        .nav-tab:nth-child(4) { animation-delay:0.27s; }
+        .nav-tab:nth-child(5) { animation-delay:0.32s; }
+        .nav-dropdown { animation: fadeSlideDown 0.4s ease-out 0.37s both; }
+
+        .hero { animation: scaleIn 0.8s ease-out both; }
+        .hero-blob-1 { animation: float 10s ease-in-out infinite; }
+        .hero-blob-2 { animation: float 7s ease-in-out infinite reverse; }
+        .hero-inner { animation: zoomIn 1s ease-out 0.2s both; }
+        .hero-eyebrow { animation: fadeSlideUp 0.5s ease-out 0.3s both; }
+        .hero h1 { animation: fadeSlideRight 0.6s ease-out 0.4s both; }
+        .hero p { animation: fadeSlideLeft 0.6s ease-out 0.5s both; }
+        .hero-btn { animation: bounceIn 0.7s ease-out 0.6s both; }
+
+        .tab-body .tab-content.active { animation: fadeSlideUp 0.6s ease-out both; }
+        .tab-body .section-tag { animation: fadeSlideLeft 0.5s ease-out 0.05s both; }
+        .tab-body .section-heading { animation: fadeSlideRight 0.5s ease-out 0.1s both; }
+        .tab-body .section-subtitle { animation: fadeSlideUp 0.5s ease-out 0.15s both; }
+
+        .technique-grid .technique-card { animation: zoomIn 0.6s ease-out both; }
+        .technique-grid .technique-card:nth-child(1) { animation-delay:0.05s; }
+        .technique-grid .technique-card:nth-child(2) { animation-delay:0.1s; }
+        .technique-grid .technique-card:nth-child(3) { animation-delay:0.15s; }
+        .technique-grid .technique-card:nth-child(4) { animation-delay:0.2s; }
+        .technique-grid .technique-card:nth-child(5) { animation-delay:0.25s; }
+        .technique-grid .technique-card:nth-child(6) { animation-delay:0.3s; }
+        .technique-grid .technique-card:hover h3 i { animation: wiggle 0.5s ease-out; }
+
+        .tip-box-wrapper { animation: bounceIn 0.8s ease-out 0.3s both; }
+        .tip-box-icon { animation: float 4s ease-in-out infinite; }
+        .pro-tip { animation: scaleIn 0.7s ease-out 0.25s both; }
+
+        footer { animation: fadeSlideUp 0.7s ease-out 0.3s both; }
+        footer .footer-logo { animation: fadeSlideUp 0.5s ease-out 0.4s both; }
+        footer p { animation: fadeSlideUp 0.5s ease-out 0.5s both; }
 
         @media(max-width:768px){
             nav { padding:0 16px; height:auto; flex-wrap:wrap; gap:8px; padding:12px 16px; }
